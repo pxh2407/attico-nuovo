@@ -98,7 +98,13 @@
     header.classList.toggle('is-scrolled', y > 24);
     var max = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
-    if (mobilebar) mobilebar.classList.toggle('is-on', y > window.innerHeight * 0.6);
+    if (mobilebar) mobilebar.classList.toggle('is-on', y > window.innerHeight * 0.6 && !inPrenotazione);
+  }
+  /* Nella zona prenotazione la barra fissa si nasconde: non deve coprire le caselle */
+  var inPrenotazione = false;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (v) { inPrenotazione = v[0].isIntersecting; suScroll(); })
+      .observe($('#disponibilita'));
   }
   window.addEventListener('scroll', suScroll, { passive: true });
   window.addEventListener('resize', suScroll);
@@ -491,17 +497,26 @@
 
   function aggiornaBiglietto() {
     var hint = $('#ticketHint');
-    hint.classList.toggle('is-warn', cal.avviso);
-    if (cal.avviso) hint.textContent = t('avail_conflict');
+    hint.classList.toggle('is-warn', !!cal.avviso);
+    if (cal.avviso) hint.textContent = t(cal.avviso === true ? 'avail_conflict' : cal.avviso);
     else if (!cal.arrivo) hint.textContent = t('avail_pick1');
     else if (!cal.partenza) hint.textContent = t('avail_pick2');
     else hint.textContent = t('avail_ready');
 
-    $('#tIn').textContent = cal.arrivo ? etichettaData(cal.arrivo) : '—';
-    $('#tOut').textContent = cal.partenza ? etichettaData(cal.partenza) : '—';
+    [['#tIn', cal.arrivo], ['#tOut', cal.partenza]].forEach(function (c) {
+      var x = $(c[0]);
+      x.textContent = c[1] ? etichettaData(c[1]) : t('avail_choose');
+      x.classList.toggle('is-empty', !c[1]);
+    });
+    var oggi = oggiStr(), dIn = $('#dIn'), dOut = $('#dOut');
+    dIn.min = oggi;
+    dIn.value = cal.arrivo || '';
+    dOut.min = piuGiorni(cal.arrivo || oggi, 1);
+    dOut.value = cal.partenza || '';
     var n = cal.arrivo && cal.partenza ? notti(cal.arrivo, cal.partenza) : 0;
     $('#tNights').textContent = n ? n + ' ' + t(n === 1 ? 'avail_night' : 'avail_nights') : '';
     $('#gNum').textContent = cal.ospiti;
+    $('#gSel').value = String(cal.ospiti);
     $('#gLess').disabled = cal.ospiti <= 1;
     $('#gMore').disabled = cal.ospiti >= DATI.ospitiMax;
     $('#tReset').hidden = !cal.arrivo;
@@ -537,7 +552,52 @@
     cal.sopra = null;
     disegnaCalendario();
     if (cal.avviso) { var x = $('[data-d="' + s + '"]', calMonths); if (x) x.classList.add('d--shake'); }
+    else if (cal.partenza) mostraBiglietto();
   });
+
+  /* Sugli schermi stretti il riepilogo sta sotto il calendario: lo porto in vista */
+  function mostraBiglietto() {
+    if (window.innerWidth > 980) return;
+    var tk = $('.ticket'), r = tk.getBoundingClientRect();
+    if (r.top < 90 || r.bottom > window.innerHeight) tk.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  /* Caselle "Arrivo" e "Partenza": aprono il calendario del telefono/computer */
+  $$('.ticket__date').forEach(function (inp) {
+    inp.addEventListener('click', function () {
+      if (inp.showPicker) { try { inp.showPicker(); } catch (e) { /* il browser lo apre da sé */ } }
+    });
+  });
+  function vaiAlMese(s) { var p = s.split('-'); cal.vista = { y: +p[0], m: +p[1] - 1 }; }
+
+  $('#dIn').addEventListener('change', function () {
+    var v = this.value;
+    cal.avviso = false;
+    if (!v) { cal.arrivo = cal.partenza = null; }
+    else if (v < oggiStr() || occupato(v)) { cal.avviso = true; }
+    else {
+      cal.arrivo = v;
+      if (cal.partenza && (cal.partenza <= v || !nottiLibere(v, cal.partenza))) cal.partenza = null;
+      vaiAlMese(v);
+    }
+    disegnaCalendario();
+    /* Scelto l'arrivo, propongo subito la partenza */
+    if (!cal.avviso && cal.arrivo && !cal.partenza) {
+      var out = $('#dOut');
+      setTimeout(function () { try { out.focus(); } catch (e) { /* ignora */ } }, 50);
+    }
+  });
+  $('#dOut').addEventListener('change', function () {
+    var v = this.value;
+    cal.avviso = false;
+    if (!v) { cal.partenza = null; }
+    else if (!cal.arrivo) { cal.partenza = null; }
+    else if (v <= cal.arrivo) { cal.avviso = 'avail_order'; }
+    else if (!nottiLibere(cal.arrivo, v)) { cal.avviso = true; }
+    else { cal.partenza = v; }
+    disegnaCalendario();
+  });
+  $('#gSel').addEventListener('change', function () { cal.ospiti = +this.value; aggiornaBiglietto(); });
   calMonths.addEventListener('mouseover', function (e) {
     var b = e.target.closest('.d');
     if (!b || !cal.arrivo || cal.partenza) return;

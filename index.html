@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="stile.css?v=1">
+  <link rel="stylesheet" href="stile.css?v=2">
 
   <!-- Dati strutturati per Google (gli stessi del sito attuale) -->
   <script type="application/ld+json">
@@ -403,15 +403,29 @@
       <aside class="ticket" aria-live="polite">
         <p class="ticket__hint" id="ticketHint"></p>
         <div class="ticket__dates">
-          <div class="ticket__field"><span class="ticket__label" data-i18n="avail_checkin"></span><span class="ticket__value" id="tIn">—</span></div>
+          <label class="ticket__field ticket__pick">
+            <span class="ticket__label" data-i18n="avail_checkin"></span>
+            <span class="ticket__value" id="tIn"></span>
+            <input type="date" class="ticket__date" id="dIn" data-i18n-aria="avail_checkin">
+          </label>
           <div class="ticket__sep" aria-hidden="true"><span id="tNights"></span></div>
-          <div class="ticket__field"><span class="ticket__label" data-i18n="avail_checkout"></span><span class="ticket__value" id="tOut">—</span></div>
+          <label class="ticket__field ticket__pick">
+            <span class="ticket__label" data-i18n="avail_checkout"></span>
+            <span class="ticket__value" id="tOut"></span>
+            <input type="date" class="ticket__date" id="dOut" data-i18n-aria="avail_checkout">
+          </label>
         </div>
         <div class="ticket__guests">
           <span class="ticket__label" data-i18n="avail_guests"></span>
           <div class="stepper">
             <button type="button" id="gLess" data-i18n-aria="avail_less"><svg class="ico" aria-hidden="true"><use href="#i-minus"/></svg></button>
-            <output id="gNum">2</output>
+            <span class="stepper__num">
+              <output id="gNum">2</output>
+              <select id="gSel" data-i18n-aria="avail_guests">
+                <option>1</option><option selected>2</option><option>3</option><option>4</option>
+                <option>5</option><option>6</option><option>7</option><option>8</option>
+              </select>
+            </span>
             <button type="button" id="gMore" data-i18n-aria="avail_more"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button>
           </div>
         </div>
@@ -581,7 +595,7 @@
   <symbol id="i-storm" viewBox="0 0 24 24"><path d="M7 15h10.5a4 4 0 0 0 .4-8A6 6 0 0 0 6.3 6.1 4.5 4.5 0 0 0 7 15z"/><path d="M12.5 15l-2 3.5h3l-2 3.5"/></symbol>
 </svg>
 
-<script src="testi.js?v=2"></script>
-<script src="app.js?v=3"></script>
+<script src="testi.js?v=3"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>
