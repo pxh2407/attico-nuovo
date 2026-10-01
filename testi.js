@@ -235,6 +235,7 @@ it: {
   cal_days: 'Lun,Mar,Mer,Gio,Ven,Sab,Dom',
 
   msg_generic: 'Buongiorno! Vorrei informazioni sull\'Attico Panoramico di Milazzo.',
+  msg_generic_dates: 'Buongiorno! Vorrei informazioni sull\'Attico Panoramico di Milazzo, con arrivo il {da} e partenza il {a}.',
   msg_dates: 'Buongiorno! Vorrei sapere se l\'Attico Panoramico è disponibile dal {da} al {a} ({notti}) per {ospiti}. Grazie!',
   msg_guest: 'ospite',
   msg_guests: 'ospiti',
@@ -449,6 +450,7 @@ en: {
   cal_days: 'Mon,Tue,Wed,Thu,Fri,Sat,Sun',
 
   msg_generic: 'Hello! I would like some information about the Attico Panoramico in Milazzo.',
+  msg_generic_dates: 'Hello! I would like some information about the Attico Panoramico in Milazzo, arriving on {da} and leaving on {a}.',
   msg_dates: 'Hello! I would like to know if the Attico Panoramico is available from {da} to {a} ({notti}) for {ospiti}. Thank you!',
   msg_guest: 'guest',
   msg_guests: 'guests',
@@ -663,6 +665,7 @@ de: {
   cal_days: 'Mo,Di,Mi,Do,Fr,Sa,So',
 
   msg_generic: 'Guten Tag! Ich hätte gerne Informationen zum Attico Panoramico in Milazzo.',
+  msg_generic_dates: 'Guten Tag! Ich hätte gerne Informationen zum Attico Panoramico in Milazzo, mit Anreise am {da} und Abreise am {a}.',
   msg_dates: 'Guten Tag! Ich möchte wissen, ob das Attico Panoramico vom {da} bis {a} ({notti}) für {ospiti} verfügbar ist. Vielen Dank!',
   msg_guest: 'Gast',
   msg_guests: 'Gäste',
@@ -877,6 +880,7 @@ fr: {
   cal_days: 'Lun,Mar,Mer,Jeu,Ven,Sam,Dim',
 
   msg_generic: 'Bonjour ! J\'aimerais des informations sur l\'Attico Panoramico à Milazzo.',
+  msg_generic_dates: 'Bonjour ! J\'aimerais des informations sur l\'Attico Panoramico à Milazzo, avec arrivée le {da} et départ le {a}.',
   msg_dates: 'Bonjour ! J\'aimerais savoir si l\'Attico Panoramico est disponible du {da} au {a} ({notti}) pour {ospiti}. Merci !',
   msg_guest: 'voyageur',
   msg_guests: 'voyageurs',

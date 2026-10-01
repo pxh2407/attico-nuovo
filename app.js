@@ -62,7 +62,6 @@
     $$('[data-i18n-aria]').forEach(function (el) { el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria'))); });
     $$('[data-i18n-alt]').forEach(function (el) { el.setAttribute('alt', t(el.getAttribute('data-i18n-alt'))); });
     $$('[data-i18n-title]').forEach(function (el) { el.setAttribute('title', t(el.getAttribute('data-i18n-title'))); });
-    $$('[data-wa]').forEach(function (el) { el.href = waLink(t('msg_generic')); });
 
     $$('[data-lang]').forEach(function (b) {
       var on = b.getAttribute('data-lang') === l;
@@ -507,7 +506,7 @@
     $('#gMore').disabled = cal.ospiti >= DATI.ospitiMax;
     $('#tReset').hidden = !cal.arrivo;
 
-    var msg = t('msg_generic');
+    var msg = t('msg_generic'), info = t('msg_generic');
     if (cal.arrivo && cal.partenza) {
       var lungo = function (s) { return new Intl.DateTimeFormat(LOCALE[lang], { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(utc(s)); };
       msg = t('msg_dates')
@@ -515,8 +514,11 @@
         .replace('{a}', lungo(cal.partenza))
         .replace('{notti}', n + ' ' + t(n === 1 ? 'avail_night' : 'avail_nights'))
         .replace('{ospiti}', cal.ospiti + ' ' + t(cal.ospiti === 1 ? 'msg_guest' : 'msg_guests'));
+      /* Anche gli altri pulsanti WhatsApp del sito riportano le date scelte */
+      info = t('msg_generic_dates').replace('{da}', lungo(cal.arrivo)).replace('{a}', lungo(cal.partenza));
     }
     $('#tSend').href = waLink(msg);
+    $$('[data-wa]').forEach(function (el) { el.href = waLink(info); });
   }
 
   calMonths.addEventListener('click', function (e) {
