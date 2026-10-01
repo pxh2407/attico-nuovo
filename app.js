@@ -558,10 +558,12 @@
   var mqCal = window.matchMedia('(max-width: 760px)');
   if (mqCal.addEventListener) mqCal.addEventListener('change', disegnaCalendario);
 
-  /* Le date occupate arrivano dallo stesso servizio del sito attuale (calendar-proxy.php) */
+  /* Le date occupate arrivano dallo stesso servizio del sito attuale (calendar-proxy.php).
+     Nell'anteprima su GitHub si usa calendar.json, una copia con le sole date
+     che GitHub aggiorna ogni mezz'ora (vedi .github/workflows/pubblica.yml) */
   function caricaCalendario() {
     var indirizzi = [];
-    if (/^https?:$/.test(location.protocol)) indirizzi.push('calendar-proxy.php');
+    if (/^https?:$/.test(location.protocol)) indirizzi.push('calendar-proxy.php', 'calendar.json');
     indirizzi.push('https://www.atticopanoramico.it/calendar-proxy.php');
     (function prova(i) {
       if (i >= indirizzi.length) { cal.stato = 'errore'; disegnaCalendario(); return; }
