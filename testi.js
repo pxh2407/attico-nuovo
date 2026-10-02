@@ -10,8 +10,6 @@
 
 /* ---------- Dati fissi (uguali in tutte le lingue) ---------- */
 var DATI = {
-  telefono: '+39 388 077 5449',
-  telefonoLink: 'tel:+393880775449',
   whatsapp: '393880775449',
   indirizzo: 'Via Cristoforo Colombo, 7 — 98057 Milazzo (ME), Sicilia',
   mappa: 'https://maps.google.com/?q=Via+Cristoforo+Colombo+7+Milazzo+ME',
@@ -272,7 +270,7 @@ it: {
     ['Quanti ospiti può ospitare l\'attico?', 'L\'appartamento può accogliere fino a 8 ospiti. Dispone di 3 camere da letto (due matrimoniali e una con due letti singoli), un divano letto matrimoniale nel salone, cucina attrezzata e terrazza panoramica.'],
     ['È incluso il parcheggio?', 'Sì, l\'appartamento include un garage privato con accesso tramite telecomando, senza costi aggiuntivi.'],
     ['Qual è la valutazione dell\'appartamento?', 'L\'Attico Panoramico ha una valutazione di 5,0 su 5 su Airbnb, con 82 recensioni degli ospiti. Su Booking.com ha 9,8 su 10 (22 recensioni) e su Vrbo 9,6 su 10 (5 recensioni).'],
-    ['Come contattare il proprietario per prenotare?', 'Puoi contattarci direttamente al +39 388 077 5449 tramite telefono o WhatsApp.'],
+    ['Come contattare il proprietario per prenotare?', 'Scrivici su WhatsApp al +39 388 077 5449: è il modo più rapido per informazioni, disponibilità e prenotazioni.'],
     ['Cosa c\'è da vedere a Milazzo?', 'Milazzo offre il Castello e Cittadella fortificata (la più grande della Sicilia, oltre 7 ettari), Capo Milazzo con la Piscina di Venere, le spiagge di Ponente e Baia del Tono, il centro storico con isola pedonale, il Santuario di San Francesco di Paola e il MuMa — Museo del Mare.'],
     ['Come si raggiungono le Isole Eolie da Milazzo?', 'Il porto di Milazzo dista 15 minuti a piedi dall\'appartamento. Aliscafi e traghetti collegano tutte e 7 le isole Eolie (Lipari, Vulcano, Salina, Stromboli, Panarea, Filicudi, Alicudi), ideali per escursioni giornaliere.'],
     ['Come si arriva a Milazzo?', 'Da Catania Fontanarossa (CTA): 1h40 via autostrada A18+A20. Da Palermo Falcone-Borsellino (PMO): 2h15 via A20. Da Messina: 35 minuti via A20. Milazzo ha anche una stazione ferroviaria sulla linea Messina–Palermo.']
@@ -280,8 +278,7 @@ it: {
 
   cta_label: 'Prenota il tuo soggiorno',
   cta_title: 'Pronto per<br>un\'esperienza indimenticabile?',
-  cta_desc: 'Contattaci direttamente per informazioni, disponibilità e tariffe. Siamo sempre a tua disposizione via telefono o WhatsApp.',
-  cta_call: 'Chiamaci',
+  cta_desc: 'Contattaci direttamente per informazioni, disponibilità e tariffe: ti rispondiamo su WhatsApp.',
   cta_wa: 'Scrivici su WhatsApp',
 
   footer_desc: 'Elegante casa vacanze nel centro storico di Milazzo, con terrazza panoramica e vista mare.',
@@ -289,7 +286,6 @@ it: {
   footer_contacts_title: 'Contatti',
   footer_rights: 'Tutti i diritti riservati',
   footer_guide: 'Guida Casa',
-  bar_call: 'Chiama',
   bar_wa: 'WhatsApp'
 },
 
@@ -497,7 +493,7 @@ en: {
     ['How many guests can the penthouse accommodate?', 'The apartment sleeps up to 8 guests. It has 3 bedrooms (two doubles and one with two single beds), a double sofa bed in the living room, a fully equipped kitchen and a panoramic terrace.'],
     ['Is parking included?', 'Yes, the apartment includes a private garage with remote-controlled access, at no extra cost.'],
     ['What is the apartment\'s rating?', 'The Attico Panoramico is rated 5.0 out of 5 on Airbnb, with 82 guest reviews. On Booking.com it scores 9.8 out of 10 (22 reviews) and on Vrbo 9.6 out of 10 (5 reviews).'],
-    ['How do I contact the owner to book?', 'You can contact us directly at +39 388 077 5449 by phone or WhatsApp.'],
+    ['How do I contact the owner to book?', 'Write to us on WhatsApp at +39 388 077 5449: it is the quickest way to ask about availability and book.'],
     ['What is there to see in Milazzo?', 'Milazzo offers the Castle and fortified Citadel (the largest in Sicily, over 7 hectares), Cape Milazzo with the Venus Pool, the Ponente and Baia del Tono beaches, the historic centre with its pedestrian area, the Sanctuary of San Francesco di Paola and the MuMa — Sea Museum.'],
     ['How do you reach the Aeolian Islands from Milazzo?', 'The port of Milazzo is a 15-minute walk from the apartment. Hydrofoils and ferries connect all 7 Aeolian Islands (Lipari, Vulcano, Salina, Stromboli, Panarea, Filicudi, Alicudi), ideal for day trips.'],
     ['How do you get to Milazzo?', 'From Catania Fontanarossa (CTA): 1h40 via the A18+A20 motorway. From Palermo Falcone-Borsellino (PMO): 2h15 via the A20. From Messina: 35 minutes via the A20. Milazzo also has a railway station on the Messina–Palermo line.']
@@ -505,8 +501,7 @@ en: {
 
   cta_label: 'Book your stay',
   cta_title: 'Ready for an<br>unforgettable experience?',
-  cta_desc: 'Contact us directly for information, availability and rates. We are always at your disposal by phone or WhatsApp.',
-  cta_call: 'Call us',
+  cta_desc: 'Contact us directly for information, availability and rates: we reply on WhatsApp.',
   cta_wa: 'Write us on WhatsApp',
 
   footer_desc: 'Elegant holiday home in the historic centre of Milazzo, with panoramic terrace and sea view.',
@@ -514,7 +509,6 @@ en: {
   footer_contacts_title: 'Contacts',
   footer_rights: 'All rights reserved',
   footer_guide: 'House Guide',
-  bar_call: 'Call',
   bar_wa: 'WhatsApp'
 },
 
@@ -722,7 +716,7 @@ de: {
     ['Wie viele Gäste können in der Wohnung übernachten?', 'Die Wohnung bietet Platz für bis zu 8 Gäste. Sie verfügt über 3 Schlafzimmer (zwei Doppelzimmer und eines mit zwei Einzelbetten), ein Doppelschlafsofa im Wohnzimmer, eine voll ausgestattete Küche und eine Panoramaterrasse.'],
     ['Ist ein Parkplatz inbegriffen?', 'Ja, die Wohnung verfügt über eine private Garage mit Zugang per Fernbedienung, ohne zusätzliche Kosten.'],
     ['Wie ist die Bewertung der Wohnung?', 'Das Attico Panoramico hat auf Airbnb eine Bewertung von 5,0 von 5 bei 82 Gästebewertungen. Auf Booking.com erreicht es 9,8 von 10 (22 Bewertungen) und auf Vrbo 9,6 von 10 (5 Bewertungen).'],
-    ['Wie kontaktiere ich den Eigentümer für eine Buchung?', 'Sie können uns direkt unter +39 388 077 5449 per Telefon oder WhatsApp erreichen.'],
+    ['Wie kontaktiere ich den Eigentümer für eine Buchung?', 'Schreiben Sie uns auf WhatsApp unter +39 388 077 5449: So erfahren Sie am schnellsten alles über Verfügbarkeit und Buchung.'],
     ['Was gibt es in Milazzo zu sehen?', 'Milazzo bietet die Burg und befestigte Zitadelle (die größte Siziliens, über 7 Hektar), das Kap Milazzo mit dem Venuspool, die Strände Ponente und Baia del Tono, die Altstadt mit Fußgängerzone, das Heiligtum San Francesco di Paola und das MuMa — Meeresmuseum.'],
     ['Wie erreicht man die Äolischen Inseln von Milazzo aus?', 'Der Hafen von Milazzo ist 15 Gehminuten von der Wohnung entfernt. Tragflügelboote und Fähren verbinden alle 7 Äolischen Inseln (Lipari, Vulcano, Salina, Stromboli, Panarea, Filicudi, Alicudi) — ideal für Tagesausflüge.'],
     ['Wie kommt man nach Milazzo?', 'Von Catania Fontanarossa (CTA): 1 Std. 40 über die A18+A20. Von Palermo Falcone-Borsellino (PMO): 2 Std. 15 über die A20. Von Messina: 35 Minuten über die A20. Milazzo hat außerdem einen Bahnhof an der Strecke Messina–Palermo.']
@@ -730,8 +724,7 @@ de: {
 
   cta_label: 'Ihren Aufenthalt buchen',
   cta_title: 'Bereit für ein<br>unvergessliches Erlebnis?',
-  cta_desc: 'Kontaktieren Sie uns direkt für Informationen, Verfügbarkeit und Preise. Wir stehen Ihnen jederzeit per Telefon oder WhatsApp zur Verfügung.',
-  cta_call: 'Rufen Sie uns an',
+  cta_desc: 'Kontaktieren Sie uns direkt für Informationen, Verfügbarkeit und Preise: Wir antworten auf WhatsApp.',
   cta_wa: 'Schreiben Sie uns auf WhatsApp',
 
   footer_desc: 'Elegantes Ferienhaus in der Altstadt von Milazzo, mit Panoramaterrasse und Meerblick.',
@@ -739,7 +732,6 @@ de: {
   footer_contacts_title: 'Kontakt',
   footer_rights: 'Alle Rechte vorbehalten',
   footer_guide: 'Hausführer',
-  bar_call: 'Anrufen',
   bar_wa: 'WhatsApp'
 },
 
@@ -947,7 +939,7 @@ fr: {
     ['Combien de voyageurs l\'appartement peut-il accueillir ?', 'L\'appartement peut accueillir jusqu\'à 8 voyageurs. Il dispose de 3 chambres (deux chambres doubles et une avec deux lits simples), d\'un canapé-lit double dans le séjour, d\'une cuisine équipée et d\'une terrasse panoramique.'],
     ['Le parking est-il inclus ?', 'Oui, l\'appartement comprend un garage privé avec accès par télécommande, sans frais supplémentaires.'],
     ['Quelle est la note de l\'appartement ?', 'L\'Attico Panoramico obtient 5,0 sur 5 sur Airbnb, avec 82 avis de voyageurs. Sur Booking.com, il obtient 9,8 sur 10 (22 avis) et sur Vrbo 9,6 sur 10 (5 avis).'],
-    ['Comment contacter le propriétaire pour réserver ?', 'Vous pouvez nous contacter directement au +39 388 077 5449 par téléphone ou WhatsApp.'],
+    ['Comment contacter le propriétaire pour réserver ?', 'Écrivez-nous sur WhatsApp au +39 388 077 5449 : c\'est le moyen le plus rapide pour connaître les disponibilités et réserver.'],
     ['Que voir à Milazzo ?', 'Milazzo offre le Château et la Citadelle fortifiée (la plus grande de Sicile, plus de 7 hectares), le Cap Milazzo avec la Piscine de Vénus, les plages de Ponente et Baia del Tono, le centre historique avec sa zone piétonne, le Sanctuaire de San Francesco di Paola et le MuMa — Musée de la Mer.'],
     ['Comment rejoindre les Îles Éoliennes depuis Milazzo ?', 'Le port de Milazzo est à 15 minutes à pied de l\'appartement. Hydroglisseurs et ferries relient les 7 Îles Éoliennes (Lipari, Vulcano, Salina, Stromboli, Panarea, Filicudi, Alicudi), idéal pour des excursions à la journée.'],
     ['Comment arriver à Milazzo ?', 'Depuis Catane Fontanarossa (CTA) : 1h40 par l\'autoroute A18+A20. Depuis Palerme Falcone-Borsellino (PMO) : 2h15 par l\'A20. Depuis Messine : 35 minutes par l\'A20. Milazzo dispose également d\'une gare sur la ligne Messine–Palerme.']
@@ -955,8 +947,7 @@ fr: {
 
   cta_label: 'Réservez votre séjour',
   cta_title: 'Prêt pour une<br>expérience inoubliable ?',
-  cta_desc: 'Contactez-nous directement pour informations, disponibilité et tarifs. Nous sommes toujours à votre disposition par téléphone ou WhatsApp.',
-  cta_call: 'Appelez-nous',
+  cta_desc: 'Contactez-nous directement pour informations, disponibilités et tarifs : nous répondons sur WhatsApp.',
   cta_wa: 'Écrivez-nous sur WhatsApp',
 
   footer_desc: 'Élégante maison de vacances dans le centre historique de Milazzo, avec terrasse panoramique et vue sur la mer.',
@@ -964,7 +955,6 @@ fr: {
   footer_contacts_title: 'Contacts',
   footer_rights: 'Tous droits réservés',
   footer_guide: 'Guide de la maison',
-  bar_call: 'Appeler',
   bar_wa: 'WhatsApp'
 }
 };

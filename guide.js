@@ -451,7 +451,7 @@ var GUIDE = [
   <li>Castello e Cittadella: 10 minuti</li>
   <li>Porto per le Isole Eolie: 15 minuti</li>
 </ul>
-<p>Per organizzare l'arrivo potete contattarci direttamente per telefono o WhatsApp al <a href="tel:+393880775449">+39 388 077 5449</a>. E una volta qui: <a href="{{LINK:cosa}}">cosa vedere a Milazzo</a> e <a href="{{LINK:eolie}}">le Isole Eolie da Milazzo</a>.</p>`,
+<p>Per organizzare l'arrivo potete scriverci direttamente su <a href="https://wa.me/393880775449">WhatsApp</a>. E una volta qui: <a href="{{LINK:cosa}}">cosa vedere a Milazzo</a> e <a href="{{LINK:eolie}}">le Isole Eolie da Milazzo</a>.</p>`,
     faq: [
       ['Quanto dista Milazzo dagli aeroporti di Catania e Palermo?', 'In auto, circa 1 ora e 40 minuti da Catania Fontanarossa (CTA) e circa 2 ore e 15 minuti da Palermo (PMO).'],
       ['Si può arrivare a Milazzo in treno?', 'Sì, Milazzo ha una stazione ferroviaria sulla linea Messina–Palermo.'],
@@ -491,7 +491,7 @@ var GUIDE = [
   <li>Castle and Citadel: 10 minutes</li>
   <li>Port for the Aeolian Islands: 15 minutes</li>
 </ul>
-<p>To arrange your arrival, contact us directly by phone or WhatsApp on <a href="tel:+393880775449">+39 388 077 5449</a>. And once you are here: <a href="{{LINK:cosa}}">things to do in Milazzo</a> and <a href="{{LINK:eolie}}">the Aeolian Islands from Milazzo</a>.</p>`,
+<p>To arrange your arrival, write to us directly on <a href="https://wa.me/393880775449">WhatsApp</a>. And once you are here: <a href="{{LINK:cosa}}">things to do in Milazzo</a> and <a href="{{LINK:eolie}}">the Aeolian Islands from Milazzo</a>.</p>`,
     faq: [
       ['How far is Milazzo from Catania and Palermo airports?', 'By car, about 1 hour 40 minutes from Catania Fontanarossa (CTA) and about 2 hours 15 minutes from Palermo (PMO).'],
       ['Can you get to Milazzo by train?', 'Yes, Milazzo has a railway station on the Messina–Palermo line.'],
@@ -531,7 +531,7 @@ var GUIDE = [
   <li>Burg und Zitadelle: 10 Minuten</li>
   <li>Hafen zu den Äolischen Inseln: 15 Minuten</li>
 </ul>
-<p>Ihre Ankunft vereinbaren Sie direkt mit uns per Telefon oder WhatsApp unter <a href="tel:+393880775449">+39 388 077 5449</a>. Und vor Ort: <a href="{{LINK:cosa}}">Sehenswürdigkeiten in Milazzo</a> und <a href="{{LINK:eolie}}">die Äolischen Inseln ab Milazzo</a>.</p>`,
+<p>Ihre Ankunft vereinbaren Sie direkt mit uns per <a href="https://wa.me/393880775449">WhatsApp</a>. Und vor Ort: <a href="{{LINK:cosa}}">Sehenswürdigkeiten in Milazzo</a> und <a href="{{LINK:eolie}}">die Äolischen Inseln ab Milazzo</a>.</p>`,
     faq: [
       ['Wie weit ist Milazzo von den Flughäfen Catania und Palermo entfernt?', 'Mit dem Auto etwa 1 Std. 40 Min. ab Catania Fontanarossa (CTA) und etwa 2 Std. 15 Min. ab Palermo (PMO).'],
       ['Kann man mit der Bahn nach Milazzo fahren?', 'Ja, Milazzo hat einen Bahnhof an der Strecke Messina–Palermo.'],
@@ -571,7 +571,7 @@ var GUIDE = [
   <li>Château et citadelle : 10 minutes</li>
   <li>Port pour les îles Éoliennes : 15 minutes</li>
 </ul>
-<p>Pour organiser votre arrivée, contactez-nous directement par téléphone ou WhatsApp au <a href="tel:+393880775449">+39 388 077 5449</a>. Et une fois sur place : <a href="{{LINK:cosa}}">que voir à Milazzo</a> et <a href="{{LINK:eolie}}">les îles Éoliennes depuis Milazzo</a>.</p>`,
+<p>Pour organiser votre arrivée, écrivez-nous directement sur <a href="https://wa.me/393880775449">WhatsApp</a>. Et une fois sur place : <a href="{{LINK:cosa}}">que voir à Milazzo</a> et <a href="{{LINK:eolie}}">les îles Éoliennes depuis Milazzo</a>.</p>`,
     faq: [
       ['À quelle distance Milazzo se trouve-t-elle des aéroports de Catane et de Palerme ?', 'En voiture, environ 1 h 40 depuis Catane Fontanarossa (CTA) et environ 2 h 15 depuis Palerme (PMO).'],
       ['Peut-on venir à Milazzo en train ?', 'Oui, Milazzo possède une gare sur la ligne Messine–Palerme.'],

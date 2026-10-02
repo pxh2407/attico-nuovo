@@ -147,7 +147,7 @@ const icona = id => {
   if (!m) throw new Error('Icona non trovata: ' + id);
   return '    ' + m[0];
 };
-const ICONE = ['i-arrow', 'i-whatsapp', 'i-phone'].concat(GUIDE.map(g => g.icona)).map(icona).join('\n');
+const ICONE = ['i-arrow', 'i-whatsapp'].concat(GUIDE.map(g => g.icona)).map(icona).join('\n');
 const numero = (n, l) => String(n).replace('.', l === 'en' ? '.' : ',');
 const jsonLd = o => '  <script type="application/ld+json">\n' + JSON.stringify(o, null, 2).replace(/^/gm, '  ') + '\n  </script>';
 const pagineGuida = [];
