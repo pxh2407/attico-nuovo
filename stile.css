@@ -164,6 +164,10 @@ strong { font-weight: 700; color: inherit; }
 .langs button { font-size: .74rem; font-weight: 700; letter-spacing: .1em; padding: 6px 10px; border-radius: 999px; color: var(--muted); transition: background .25s, color .25s; }
 .langs button:hover { color: var(--ink); }
 .langs button.is-on { background: var(--ink); color: var(--paper); }
+/* Nelle pagine guida le lingue sono collegamenti */
+.langs a { font-size: .74rem; font-weight: 700; letter-spacing: .1em; padding: 6px 10px; border-radius: 999px; color: var(--muted); transition: background .25s, color .25s; }
+.langs a:hover { color: var(--ink); }
+.langs a[aria-current="page"] { background: var(--ink); color: var(--paper); }
 
 .burger { display: none; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); position: relative; }
 .burger span { position: absolute; left: 13px; right: 13px; height: 1.5px; background: var(--ink); transition: transform .4s var(--ease), top .4s var(--ease); }
@@ -589,6 +593,59 @@ strong { font-weight: 700; color: inherit; }
 .js .reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
 .js .reveal.in { opacity: 1; transform: none; }
 
+/* ---------- Pagina principale: collegamenti alle guide ---------- */
+.guide-links { margin-top: clamp(56px, 7vw, 90px); text-align: center; }
+.guide-links ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 22px; text-align: left; }
+.guide-links a {
+  display: flex; align-items: center; gap: 14px; height: 100%; padding: 22px 24px; border-radius: 18px;
+  background: var(--card); border: 1px solid var(--line); color: var(--ink);
+  font-family: var(--serif); font-size: 1.4rem; font-weight: 600; line-height: 1.2;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s;
+}
+.guide-links a:hover, .guide-links a:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--gold); }
+.guide-links a .ico { width: 30px; height: 30px; color: var(--gold-deep); stroke-width: 1.3; }
+.guide-links a .ico:last-child { width: 20px; height: 20px; margin-left: auto; color: var(--gold); }
+
+/* ---------- Pagine guida ---------- */
+.pagina-guida { background: var(--paper); }
+.guida { padding: calc(var(--header-h) + 34px) 0 clamp(70px, 9vw, 110px); }
+.guida__wrap { max-width: 860px; }
+.guida__briciole { display: flex; flex-wrap: wrap; gap: 8px; font-size: .9rem; color: var(--muted); margin-bottom: 28px; }
+.guida__briciole a { color: var(--gold-deep); text-decoration: underline; text-underline-offset: 3px; }
+.guida__head .title { margin: .2em 0 .3em; }
+.guida__data { margin-top: 14px; font-size: .9rem; color: var(--muted); }
+.guida__foto { margin: 34px 0 46px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); aspect-ratio: 16 / 9; background: var(--paper-2); }
+.guida__foto img { width: 100%; height: 100%; object-fit: cover; }
+.guida__testo { font-size: 1.12rem; line-height: 1.75; color: var(--text); }
+.guida__testo h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(1.8rem, 3.2vw, 2.3rem); line-height: 1.15; color: var(--ink); margin: 1.5em 0 .45em; }
+.guida__testo h2:first-child { margin-top: 0; }
+.guida__testo p { margin-bottom: 1em; }
+.guida__testo ul, .guida__testo ol { margin: 0 0 1.3em 1.4em; }
+.guida__testo li { margin-bottom: .45em; padding-left: .2em; }
+.guida__testo li::marker { color: var(--gold-deep); }
+.guida__testo strong { color: var(--ink); font-weight: 700; }
+.guida__testo a { color: var(--sea); text-decoration: underline; text-underline-offset: 3px; }
+.guida__testo a:hover { color: var(--gold-deep); }
+.guida__tabwrap { overflow-x: auto; margin: 6px 0 24px; border-radius: 16px; }
+.guida__tab { width: 100%; border-collapse: collapse; margin: 0; font-size: 1.02rem; background: var(--card); border-radius: 16px; overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
+.guida__tab th, .guida__tab td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--line); }
+.guida__tab tr:last-child td { border-bottom: 0; }
+.guida__tab th { font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: var(--paper-2); }
+.guida__tab td:first-child { font-weight: 700; color: var(--ink); }
+.guida__faq { margin-top: 2.4em; }
+.guida__faq .faq__list summary { font-size: 1.12rem; }
+.guida__cta { margin: clamp(50px, 7vw, 76px) 0; padding: clamp(30px, 5vw, 52px); border-radius: var(--radius); background: var(--ink); color: var(--paper); text-align: center; }
+.guida__cta .eyebrow { justify-content: center; }
+.guida__cta h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(2rem, 4vw, 2.7rem); line-height: 1.1; color: var(--paper); margin: 8px 0 12px; }
+.guida__cta p { color: rgba(247,242,234,.86); max-width: 34em; margin: 0 auto 26px; }
+.guida__altre h2 { font-family: var(--serif); font-weight: 600; font-size: 1.8rem; color: var(--ink); margin-bottom: 16px; }
+.guida__altre ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.guida__altre a { display: flex; align-items: center; gap: 12px; height: 100%; padding: 18px 20px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); font-family: var(--serif); font-size: 1.3rem; font-weight: 600; line-height: 1.2; color: var(--ink); transition: border-color .3s, box-shadow .3s; }
+.guida__altre a:hover, .guida__altre a:focus-visible { border-color: var(--gold); box-shadow: var(--shadow); }
+.guida__altre .ico { width: 26px; height: 26px; color: var(--gold-deep); }
+.guida__lingue { margin-top: 34px; font-size: .98rem; color: var(--muted); }
+.guida__lingue a { color: var(--sea); text-decoration: underline; text-underline-offset: 3px; margin: 0 4px; }
+
 /* =============================================================================
    ADATTAMENTO AGLI SCHERMI
    ============================================================================= */
@@ -632,6 +689,8 @@ strong { font-weight: 700; color: inherit; }
   .home-label, .eolie__sea, .eolie__sicily { font-size: 28px; }
   .eolie__map figcaption { display: none; }
   .ggrid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; gap: 10px; }
+  .guide-links ul { grid-template-columns: 1fr; }
+  .guida__tab th, .guida__tab td { padding: 10px 12px; }
   .ggrid.is-filtered { grid-auto-rows: 170px; }
   .g--grande .gitem__cap { font-size: 1.3rem; }
   .gitem__cap { font-size: 1.02rem; left: 12px; right: 12px; bottom: 10px; }

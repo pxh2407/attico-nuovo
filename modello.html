@@ -3,7 +3,7 @@
 <head>
 {{SEO}}
 
-  <link rel="stylesheet" href="{{BASE}}stile.css?v=4">
+  <link rel="stylesheet" href="{{BASE}}stile.css?v=5">
   <script>document.documentElement.classList.add('js');</script>
 {{REINDIRIZZA}}
 </head>
@@ -339,6 +339,12 @@
       <article class="card card--soft reveal"><svg class="ico card__ico" aria-hidden="true"><use href="#i-route"/></svg><h3 data-i18n="disc_how_title"></h3><p data-i18n="disc_how_desc"></p></article>
       <article class="card card--soft reveal"><svg class="ico card__ico" aria-hidden="true"><use href="#i-column"/></svg><h3 data-i18n="disc_history_title"></h3><p data-i18n="disc_history_desc"></p></article>
     </div>
+
+    <!-- Guide di viaggio (pagine scritte da genera-pagine.js con i testi di guide.js) -->
+    <nav class="guide-links reveal" aria-labelledby="guideTitolo">
+      <p class="eyebrow" id="guideTitolo" data-i18n="guide_label"></p>
+      <ul>{{GUIDE_LINKS}}</ul>
+    </nav>
   </div>
 </section>
 

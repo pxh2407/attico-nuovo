@@ -195,6 +195,7 @@ it: {
   map_title: 'Posizione dell\'Attico Panoramico su Google Maps – Via Cristoforo Colombo 7, Milazzo',
 
   disc_label: 'Scopri Milazzo',
+  guide_label: 'Le nostre guide di viaggio',
   disc_title: 'Una destinazione tutta da vivere',
   disc_desc: 'Milazzo non è solo un punto di partenza per le Isole Eolie: è una città ricca di storia, spiagge e panorami unici, tutta da esplorare a piedi dal nostro appartamento.',
   disc_castle_title: 'Castello e Cittadella',
@@ -415,6 +416,7 @@ en: {
   map_title: 'Location of Attico Panoramico on Google Maps – Via Cristoforo Colombo 7, Milazzo',
 
   disc_label: 'Discover Milazzo',
+  guide_label: 'Our travel guides',
   disc_title: 'A destination to experience',
   disc_desc: 'Milazzo is not just a departure point for the Aeolian Islands: it\'s a city rich in history, beaches and unique views, all waiting to be explored on foot from our apartment.',
   disc_castle_title: 'Castle and Citadel',
@@ -635,6 +637,7 @@ de: {
   map_title: 'Lage des Attico Panoramico auf Google Maps – Via Cristoforo Colombo 7, Milazzo',
 
   disc_label: 'Milazzo entdecken',
+  guide_label: 'Unsere Reiseführer',
   disc_title: 'Ein Reiseziel zum Erleben',
   disc_desc: 'Milazzo ist nicht nur ein Ausgangspunkt zu den Äolischen Inseln: Es ist eine Stadt voller Geschichte, Strände und einzigartiger Ausblicke — alles zu Fuß von unserer Wohnung aus zu erkunden.',
   disc_castle_title: 'Burg und Zitadelle',
@@ -855,6 +858,7 @@ fr: {
   map_title: 'Emplacement de l\'Attico Panoramico sur Google Maps – Via Cristoforo Colombo 7, Milazzo',
 
   disc_label: 'Découvrir Milazzo',
+  guide_label: 'Nos guides de voyage',
   disc_title: 'Une destination à vivre',
   disc_desc: 'Milazzo n\'est pas seulement un point de départ vers les Îles Éoliennes : c\'est une ville riche en histoire, plages et panoramas uniques, à explorer à pied depuis notre appartement.',
   disc_castle_title: 'Château et Citadelle',

@@ -30,9 +30,9 @@ jobs:
       - name: Prepara il sito e scarica le date occupate
         run: |
           mkdir -p _site
-          cp -r index.html stile.css app.js testi.js images fonts en de fr _site/
+          cp -r index.html stile.css app.js testi.js images fonts en de fr guida _site/
           # L'anteprima non deve finire su Google (il sito vero è www.atticopanoramico.it)
-          sed -i 's#<meta name="robots" content="[^"]*"#<meta name="robots" content="noindex, nofollow"#' _site/index.html _site/en/index.html _site/de/index.html _site/fr/index.html
+          find _site -name "*.html" -exec sed -i 's#<meta name="robots" content="[^"]*"#<meta name="robots" content="noindex, nofollow"#' {} +
           if curl -fsS --max-time 30 -A "AtticoAnteprima/1.0" "https://www.atticopanoramico.it/calendar-proxy.php" -o raw.json; then
             python3 -c "import json; d=json.load(open('raw.json')); json.dump({'aggiornato': d.get('aggiornato'), 'eventi': [{'start': e['start'], 'end': e['end']} for e in d.get('eventi', [])]}, open('_site/calendar.json', 'w'))"
             echo "Date occupate copiate: $(python3 -c "import json; print(len(json.load(open('_site/calendar.json'))['eventi']))")"
