@@ -521,6 +521,16 @@ strong { font-weight: 700; color: inherit; }
 .quote figcaption b { display: block; font-weight: 600; }
 .quote figcaption small { display: block; font-size: .82rem; color: rgba(247,242,234,.55); }
 .quote figcaption .stars { margin-left: auto; font-size: .85rem; }
+/* Schede con i voti dei portali (Airbnb, Booking.com, Vrbo) */
+.piatt { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 20px; padding: 26px 30px; color: var(--paper); transition: border-color .3s, background .3s; }
+.piatt:hover, .piatt:focus-visible { border-color: var(--gold); background: rgba(255,255,255,.08); }
+.piatt__nome { font-family: var(--serif); font-size: 2rem; font-weight: 600; line-height: 1.1; color: var(--paper); }
+.piatt__voto { grid-row: span 2; font-family: var(--serif); font-size: clamp(2.6rem, 5vw, 3.4rem); font-weight: 500; line-height: 1; color: var(--gold-light); text-align: right; white-space: nowrap; }
+.piatt__voto small { font-size: .42em; color: rgba(247,242,234,.6); }
+.piatt__info { font-size: .98rem; color: rgba(247,242,234,.78); }
+.piatt__link { grid-column: 1 / -1; display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-light); }
+.piatt__link .ico { transition: transform .3s var(--ease); }
+.piatt:hover .piatt__link .ico { transform: translateX(4px); }
 .avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--gold); color: var(--ink); display: grid; place-items: center; font-family: var(--serif); font-size: 1.3rem; font-weight: 600; flex-shrink: 0; }
 
 /* ---------- Domande frequenti ---------- */

@@ -173,7 +173,7 @@ for (const g of GUIDE) {
 
     const faq = c.faq.map((q, i) => '<details name="faq"' + (i === 0 ? ' open' : '') + '><summary>' + q[0] + '</summary><p>' + q[1] + '</p></details>').join('');
     const hreflang = LINGUE.map(x => '  <link rel="alternate" hreflang="' + x.l + '" href="' + SITO + g[x.l].slug + '">').join('\n') +
-      '\n  <link rel="alternate" hreflang="x-default" href="' + SITO + g.it.slug + '">';
+      '\n  <link rel="alternate" hreflang="x-default" href="' + SITO + g.en.slug + '">';  /* ospiti quasi tutti stranieri: lingua di ripiego inglese */
     const corte = LINGUE.map(x => '<a href="' + base + g[x.l].slug + '" hreflang="' + x.l + '" lang="' + x.l + '"' + (x.l === l ? ' aria-current="page"' : '') + '>' + x.l.toUpperCase() + '</a>').join('');
     const lunghe = LINGUE.filter(x => x.l !== l).map(x => '<a href="' + base + g[x.l].slug + '" hreflang="' + x.l + '" lang="' + x.l + '">' + NOMI_LINGUA[x.l] + '</a>').join(' · ');
     const altre = GUIDE.filter(x => x !== g).map(x => '<li><a href="' + base + x[l].slug + '"><svg class="ico" aria-hidden="true"><use href="#' + x.icona + '"/></svg>' + x[l].breve + '</a></li>').join('');
@@ -220,12 +220,12 @@ for (const g of GUIDE) {
 /* Mappa del sito per i motori di ricerca: pagine principali e guide, con i collegamenti tra lingue e le foto */
 const oggi = new Date().toISOString().slice(0, 10);
 const alternative = LINGUE.map(({ l }) => '    <xhtml:link rel="alternate" hreflang="' + l + '" href="' + indirizzo(l) + '"/>').join('\n') +
-  '\n    <xhtml:link rel="alternate" hreflang="x-default" href="' + SITO + '"/>';
+  '\n    <xhtml:link rel="alternate" hreflang="x-default" href="' + indirizzo('en') + '"/>';
 const immagini = FOTO.map(f => '    <image:image><image:loc>' + SITO + 'images/' + f.file + '</image:loc></image:image>').join('\n');
 const urlGuide = pagineGuida.map(({ g, l }) =>
   '  <url>\n    <loc>' + SITO + g[l].slug + '</loc>\n    <lastmod>' + GUIDE_DATA + '</lastmod>\n' +
   LINGUE.map(x => '    <xhtml:link rel="alternate" hreflang="' + x.l + '" href="' + SITO + g[x.l].slug + '"/>').join('\n') +
-  '\n    <xhtml:link rel="alternate" hreflang="x-default" href="' + SITO + g.it.slug + '"/>' +
+  '\n    <xhtml:link rel="alternate" hreflang="x-default" href="' + SITO + g.en.slug + '"/>' +
   '\n    <image:image><image:loc>' + SITO + 'images/' + g.foto + '-scaled-960x800_c.webp</image:loc></image:image>\n  </url>').join('\n');
 const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<!-- Creata da genera-pagine.js -->\n' +
