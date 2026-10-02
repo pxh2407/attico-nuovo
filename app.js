@@ -19,7 +19,11 @@
   var LINGUE = ['it', 'en', 'de', 'fr'];
   var LOCALE = { it: 'it-IT', en: 'en-GB', de: 'de-DE', fr: 'fr-FR' };
   var FUSO = 'Europe/Rome';
-  var lang = scegliLingua();
+  /* Ogni lingua ha la sua pagina (/, /en/, /de/, /fr/): la lingua è quella della pagina.
+     BASE porta alla cartella principale del sito ("" oppure "../") */
+  var BASE = document.documentElement.getAttribute('data-base') || '';
+  var lang = document.documentElement.lang;
+  if (LINGUE.indexOf(lang) === -1) lang = 'it';
 
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
@@ -34,30 +38,17 @@
   /* =========================================================================
      1. LINGUA
      ========================================================================= */
-  function scegliLingua() {
-    var q = new URLSearchParams(location.search).get('lang');
-    if (q && LINGUE.indexOf(q) !== -1) return q;
-    try {
-      var s = localStorage.getItem('attico_lang');
-      if (s && LINGUE.indexOf(s) !== -1) return s;
-    } catch (e) { /* memoria del browser non disponibile */ }
-    var pref = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'it'];
-    for (var i = 0; i < pref.length; i++) {
-      var c = String(pref[i] || '').slice(0, 2).toLowerCase();
-      if (LINGUE.indexOf(c) !== -1) return c;
-    }
-    /* Ospite straniero con una lingua non prevista: meglio l'inglese */
-    var primo = String(pref[0] || 'it').slice(0, 2).toLowerCase();
-    return primo === 'it' ? 'it' : 'en';
+  /* Indirizzo della pagina in un'altra lingua (aperto dal computer serve "index.html") */
+  function paginaLingua(l) {
+    var p = BASE + (l === 'it' ? '' : l + '/');
+    if (location.protocol === 'file:') p += 'index.html';
+    return p || './';
   }
 
+  /* I testi sono già scritti nella pagina dal generatore (genera-pagine.js);
+     qui si riapplicano per sicurezza e si accende il pulsante della lingua */
   function applicaLingua(l) {
     lang = l;
-    document.documentElement.lang = l;
-    document.title = t('meta_title');
-    var md = $('meta[name="description"]');
-    if (md) md.setAttribute('content', t('meta_desc'));
-
     $$('[data-i18n]').forEach(function (el) { el.innerHTML = t(el.getAttribute('data-i18n')); });
     $$('[data-i18n-aria]').forEach(function (el) { el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria'))); });
     $$('[data-i18n-alt]').forEach(function (el) { el.setAttribute('alt', t(el.getAttribute('data-i18n-alt'))); });
@@ -68,7 +59,6 @@
       b.classList.toggle('is-on', on);
       b.setAttribute('aria-pressed', String(on));
     });
-    try { localStorage.setItem('attico_lang', l); } catch (e) { /* ignora */ }
 
     aggiornaBurger();
     disegnaGalleria();
@@ -79,8 +69,10 @@
 
   $$('[data-lang]').forEach(function (b) {
     b.addEventListener('click', function () {
-      applicaLingua(b.getAttribute('data-lang'));
-      if (!menu.hidden) chiudiMenu();
+      var l = b.getAttribute('data-lang');
+      try { localStorage.setItem('attico_lang', l); } catch (e) { /* memoria del browser non disponibile */ }
+      if (l === lang) { if (!menu.hidden) chiudiMenu(); return; }
+      location.href = paginaLingua(l) + location.hash;
     });
   });
 
@@ -238,7 +230,7 @@
       if (filtro !== 'tutte' && f.cat !== filtro) return;
       var cap = f[lang] || f.it;
       html += '<button type="button" class="gitem' + (f.forma ? ' g--' + f.forma : '') + '" data-i="' + i + '" aria-label="' + t('gallery_open') + ': ' + cap.replace(/"/g, '&quot;') + '">' +
-        '<img src="images/' + f.file + '" alt="' + cap.replace(/"/g, '&quot;') + '" width="960" height="800" loading="lazy" decoding="async">' +
+        '<img src="' + BASE + 'images/' + f.file + '" alt="' + cap.replace(/"/g, '&quot;') + '" width="960" height="800" loading="lazy" decoding="async">' +
         '<span class="gitem__cap">' + cap + '</span></button>';
     });
     ggrid.innerHTML = html;
@@ -270,7 +262,7 @@
 
   function apriVisore(pos) {
     lbThumbs.innerHTML = lbLista.map(function (i, k) {
-      return '<button type="button" data-k="' + k + '" aria-label="' + (k + 1) + '"><img src="images/' + FOTO[i].file + '" alt="" loading="lazy"></button>';
+      return '<button type="button" data-k="' + k + '" aria-label="' + (k + 1) + '"><img src="' + BASE + 'images/' + FOTO[i].file + '" alt="" loading="lazy"></button>';
     }).join('');
     lb.hidden = false;
     document.body.classList.add('no-scroll');
@@ -280,14 +272,14 @@
   function mostraFoto(pos) {
     lbPos = (pos + lbLista.length) % lbLista.length;
     var f = FOTO[lbLista[lbPos]], cap = f[lang] || f.it;
-    lbImg.src = 'images/' + f.file;
+    lbImg.src = BASE + 'images/' + f.file;
     lbImg.alt = cap;
     lbCap.textContent = cap;
     lbCount.textContent = (lbPos + 1) + ' / ' + lbLista.length;
     $$('button', lbThumbs).forEach(function (b, k) { b.classList.toggle('is-on', k === lbPos); });
     var att = $('.is-on', lbThumbs);
     if (att) att.scrollIntoView({ block: 'nearest', inline: 'center' });
-    [1, -1].forEach(function (d) { new Image().src = 'images/' + FOTO[lbLista[(lbPos + d + lbLista.length) % lbLista.length]].file; });
+    [1, -1].forEach(function (d) { new Image().src = BASE + 'images/' + FOTO[lbLista[(lbPos + d + lbLista.length) % lbLista.length]].file; });
   }
   function chiudiVisore() {
     lb.hidden = true;
@@ -623,7 +615,7 @@
      che GitHub aggiorna ogni mezz'ora (vedi .github/workflows/pubblica.yml) */
   function caricaCalendario() {
     var indirizzi = [];
-    if (/^https?:$/.test(location.protocol)) indirizzi.push('calendar-proxy.php', 'calendar.json');
+    if (/^https?:$/.test(location.protocol)) indirizzi.push(BASE + 'calendar-proxy.php', BASE + 'calendar.json');
     indirizzi.push('https://www.atticopanoramico.it/calendar-proxy.php');
     (function prova(i) {
       if (i >= indirizzi.length) { cal.stato = 'errore'; disegnaCalendario(); return; }

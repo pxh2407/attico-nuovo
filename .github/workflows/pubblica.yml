@@ -30,7 +30,7 @@ jobs:
       - name: Prepara il sito e scarica le date occupate
         run: |
           mkdir -p _site
-          cp -r index.html stile.css app.js testi.js images _site/
+          cp -r index.html stile.css app.js testi.js images en de fr _site/
           if curl -fsS --max-time 30 -A "AtticoAnteprima/1.0" "https://www.atticopanoramico.it/calendar-proxy.php" -o raw.json; then
             python3 -c "import json; d=json.load(open('raw.json')); json.dump({'aggiornato': d.get('aggiornato'), 'eventi': [{'start': e['start'], 'end': e['end']} for e in d.get('eventi', [])]}, open('_site/calendar.json', 'w'))"
             echo "Date occupate copiate: $(python3 -c "import json; print(len(json.load(open('_site/calendar.json'))['eventi']))")"

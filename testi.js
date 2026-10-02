@@ -1,8 +1,11 @@
 /* =============================================================================
    ATTICO PANORAMICO — TESTI DEL SITO (IT / EN / DE / FR)
 
-   Per correggere o aggiungere un testo si modifica SOLO questo file.
+   Per correggere o aggiungere un testo si modifica SOLO questo file,
+   poi si rigenerano le pagine con:  node genera-pagine.js
    Ogni lingua ha le stesse chiavi; se una chiave manca, si usa l'italiano.
+   Titolo, descrizione e dati per Google stanno invece in seo/it.html, en, de, fr
+   (meta_title e meta_desc qui sotto non sono più usati).
    ============================================================================= */
 
 /* ---------- Dati fissi (uguali in tutte le lingue) ---------- */

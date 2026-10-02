@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}" data-base="{{BASE}}" prefix="og: https://ogp.me/ns#">
+<head>
+{{SEO}}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{BASE}}stile.css?v=2">
+{{REINDIRIZZA}}
+</head>
+
+<body>
+
+<a class="skip" href="#contenuto" data-i18n="skip">Salta al contenuto principale</a>
+<div class="progress" aria-hidden="true"><span id="progress"></span></div>
+
+<!-- ============================ INTESTAZIONE ============================ -->
+<header class="header" id="header">
+  <div class="cinbar">CIN <b>IT083049C2FNPHRA9D</b></div>
+  <div class="header__bar">
+    <a class="brand" href="#top">
+      <img src="{{BASE}}images/Attico.jpg" alt="" width="46" height="46">
+      <span class="brand__text">
+        <span class="brand__name">Attico Panoramico</span>
+        <span class="brand__tag" data-i18n="tagline"></span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Menu">
+      <ul>
+        <li><a href="#appartamento" data-i18n="nav_apartment"></a></li>
+        <li><a href="#galleria" data-i18n="nav_gallery"></a></li>
+        <li><a href="#servizi" data-i18n="nav_amenities"></a></li>
+        <li><a href="#dove" data-i18n="nav_location"></a></li>
+        <li><a href="#scopri" data-i18n="nav_discover"></a></li>
+        <li><a href="#recensioni" data-i18n="nav_reviews"></a></li>
+      </ul>
+    </nav>
+
+    <div class="header__tools">
+      <div class="langs" role="group" aria-label="Lingua · Language">
+        <button type="button" data-lang="it" lang="it" title="Italiano">IT</button>
+        <button type="button" data-lang="en" lang="en" title="English">EN</button>
+        <button type="button" data-lang="de" lang="de" title="Deutsch">DE</button>
+        <button type="button" data-lang="fr" lang="fr" title="Français">FR</button>
+      </div>
+      <a class="btn btn--gold btn--sm header__book" href="#disponibilita" data-i18n="nav_book"></a>
+      <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="menu" data-i18n-aria="menu_open">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Menu a tutto schermo (telefono) -->
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Menu">
+    <ol>
+      <li><a href="#appartamento" data-i18n="nav_apartment"></a></li>
+      <li><a href="#galleria" data-i18n="nav_gallery"></a></li>
+      <li><a href="#servizi" data-i18n="nav_amenities"></a></li>
+      <li><a href="#dove" data-i18n="nav_location"></a></li>
+      <li><a href="#scopri" data-i18n="nav_discover"></a></li>
+      <li><a href="#disponibilita" data-i18n="nav_availability"></a></li>
+      <li><a href="#recensioni" data-i18n="nav_reviews"></a></li>
+      <li><a href="#faq" data-i18n="nav_faq"></a></li>
+    </ol>
+  </nav>
+  <div class="menu__foot">
+    <div class="langs langs--big" role="group" aria-label="Lingua · Language">
+      <button type="button" data-lang="it" lang="it">Italiano</button>
+      <button type="button" data-lang="en" lang="en">English</button>
+      <button type="button" data-lang="de" lang="de">Deutsch</button>
+      <button type="button" data-lang="fr" lang="fr">Français</button>
+    </div>
+    <a class="menu__phone" href="tel:+393880775449">+39 388 077 5449</a>
+  </div>
+</div>
+
+<main id="contenuto">
+
+<!-- ============================ APERTURA ============================ -->
+<section class="hero" id="top">
+  <div class="hero__inner">
+    <div class="hero__text">
+      <p class="eyebrow eyebrow--line" data-i18n="hero_eyebrow"></p>
+      <h1 class="hero__title">
+        <span class="hero__name"><span class="hero__word">Attico</span> <span class="hero__word">Panoramico</span></span>
+        <em class="hero__sub" data-i18n="hero_sub"></em>
+      </h1>
+      <p class="hero__desc" data-i18n="hero_desc"></p>
+      <div class="hero__cta">
+        <a class="btn btn--ink" href="#disponibilita">
+          <span data-i18n="hero_cta_dates"></span>
+          <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+        <a class="btn btn--line" href="https://wa.me/393880775449" target="_blank" rel="noopener" data-wa>
+          <svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+          <span data-i18n="hero_cta_wa"></span>
+        </a>
+      </div>
+      <a class="hero__rating" href="#recensioni">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span class="hero__score">5.0</span>
+        <span class="hero__ratingtext"><span data-i18n="hero_rating_label"></span> · <span data-i18n="hero_rating_source"></span></span>
+      </a>
+    </div>
+
+    <div class="hero__visual">
+      <div class="arch arch--hero">
+        <img src="{{BASE}}images/DSC5134-scaled-960x800_c.webp" width="960" height="800" fetchpriority="high" decoding="async" data-i18n-alt="hero_alt" alt="">
+      </div>
+      <svg class="seal" viewBox="0 0 200 200" aria-hidden="true">
+        <defs><path id="sealPath" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+        <circle cx="100" cy="100" r="98" class="seal__bg"/>
+        <circle cx="100" cy="100" r="56" class="seal__ring"/>
+        <text class="seal__text"><textPath href="#sealPath" textLength="462">ATTICO PANORAMICO · MILAZZO · SICILIA ·</textPath></text>
+        <text x="100" y="98" text-anchor="middle" class="seal__num">5.0</text>
+        <text x="100" y="122" text-anchor="middle" class="seal__stars">★★★★★</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Milazzo in tempo reale -->
+  <div class="live" id="live" aria-live="polite">
+    <div class="live__item">
+      <svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>
+      <span class="live__label" data-i18n="live_time"></span>
+      <span class="live__value" id="liveTime">--:--</span>
+    </div>
+    <div class="live__item">
+      <svg class="ico" aria-hidden="true" id="liveWIcon"><use href="#i-sun"/></svg>
+      <span class="live__label" data-i18n="live_weather"></span>
+      <span class="live__value" id="liveWeather">—</span>
+    </div>
+    <div class="live__item">
+      <svg class="ico" aria-hidden="true"><use href="#i-wave"/></svg>
+      <span class="live__label" data-i18n="live_sea"></span>
+      <span class="live__value" id="liveSea">—</span>
+    </div>
+    <div class="live__item">
+      <svg class="ico" aria-hidden="true"><use href="#i-sunset"/></svg>
+      <span class="live__label" id="liveSunsetLabel" data-i18n="live_sunset"></span>
+      <span class="live__value" id="liveSunset">--:--</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PUNTI DI FORZA ============================ -->
+<div class="ribbon" role="list">
+  <div class="ribbon__item" role="listitem"><svg class="ico" aria-hidden="true"><use href="#i-guests"/></svg><div><strong data-i18n="feat_guests"></strong><span data-i18n="feat_guests_sub"></span></div></div>
+  <div class="ribbon__item" role="listitem"><svg class="ico" aria-hidden="true"><use href="#i-wave"/></svg><div><strong data-i18n="feat_sea"></strong><span data-i18n="feat_sea_sub"></span></div></div>
+  <div class="ribbon__item" role="listitem"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg><div><strong data-i18n="feat_garage"></strong><span data-i18n="feat_garage_sub"></span></div></div>
+  <div class="ribbon__item" role="listitem"><svg class="ico" aria-hidden="true"><use href="#i-film"/></svg><div><strong data-i18n="feat_cinema"></strong><span data-i18n="feat_cinema_sub"></span></div></div>
+  <div class="ribbon__item" role="listitem"><svg class="ico" aria-hidden="true"><use href="#i-book"/></svg><div><strong data-i18n="feat_library"></strong><span data-i18n="feat_library_sub"></span></div></div>
+  <div class="ribbon__item" role="listitem"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><div><strong data-i18n="feat_stars"></strong><span data-i18n="feat_stars_sub"></span></div></div>
+</div>
+
+<!-- ============================ L'APPARTAMENTO ============================ -->
+<section class="section about" id="appartamento">
+  <div class="container about__grid">
+    <div class="about__visual reveal">
+      <div class="arch arch--about"><img src="{{BASE}}images/DSC5102-scaled-960x800_c.webp" width="960" height="800" loading="lazy" decoding="async" alt=""></div>
+      <div class="about__inset"><img src="{{BASE}}images/DSC4989-scaled-960x800_c.webp" width="960" height="800" loading="lazy" decoding="async" alt=""></div>
+    </div>
+    <div class="about__text reveal">
+      <p class="eyebrow" data-i18n="about_label"></p>
+      <h2 class="title" data-i18n="about_title"></h2>
+      <p class="lead" data-i18n="about_desc"></p>
+      <dl class="stats">
+        <div class="stat"><dt class="stat__num" data-count="8">8</dt><dd data-i18n="stat_guests"></dd></div>
+        <div class="stat"><dt class="stat__num">5<span class="stat__star">★</span></dt><dd data-i18n="stat_rating"></dd></div>
+        <div class="stat"><dt class="stat__num" data-count="73">73</dt><dd data-i18n="stat_reviews"></dd></div>
+        <div class="stat"><dt class="stat__num" data-count="300" data-suffix="+">300+</dt><dd data-i18n="stat_books"></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ GALLERIA ============================ -->
+<section class="section gallery" id="galleria">
+  <div class="container">
+    <header class="section__head reveal">
+      <p class="eyebrow" data-i18n="gallery_label"></p>
+      <h2 class="title" data-i18n="gallery_title"></h2>
+      <p class="lead" data-i18n="gallery_desc"></p>
+    </header>
+    <div class="filters reveal" role="group" id="filters">
+      <button type="button" class="chip is-on" data-filter="tutte" data-i18n="filter_all" aria-pressed="true"></button>
+      <button type="button" class="chip" data-filter="esterni" data-i18n="filter_esterni" aria-pressed="false"></button>
+      <button type="button" class="chip" data-filter="soggiorno" data-i18n="filter_soggiorno" aria-pressed="false"></button>
+      <button type="button" class="chip" data-filter="camere" data-i18n="filter_camere" aria-pressed="false"></button>
+      <button type="button" class="chip" data-filter="servizi" data-i18n="filter_servizi" aria-pressed="false"></button>
+    </div>
+    <div class="ggrid" id="ggrid"></div>
+  </div>
+</section>
+
+<!-- ============================ DOTAZIONI ============================ -->
+<section class="section amenities" id="servizi">
+  <div class="container">
+    <header class="section__head reveal">
+      <p class="eyebrow" data-i18n="amenities_label"></p>
+      <h2 class="title" data-i18n="amenities_title"></h2>
+      <p class="lead" data-i18n="amenities_desc"></p>
+    </header>
+    <div class="cards">
+      <article class="card reveal">
+        <span class="card__num">01</span><svg class="ico card__ico" aria-hidden="true"><use href="#i-wifi"/></svg>
+        <h3 data-i18n="amen_conn_title"></h3>
+        <ul class="ticks"><li data-i18n="amen_conn_1"></li><li data-i18n="amen_conn_2"></li><li data-i18n="amen_conn_3"></li><li data-i18n="amen_conn_4"></li></ul>
+      </article>
+      <article class="card reveal">
+        <span class="card__num">02</span><svg class="ico card__ico" aria-hidden="true"><use href="#i-pot"/></svg>
+        <h3 data-i18n="amen_kitchen_title"></h3>
+        <ul class="ticks"><li data-i18n="amen_kit_1"></li><li data-i18n="amen_kit_2"></li><li data-i18n="amen_kit_4"></li></ul>
+      </article>
+      <article class="card reveal">
+        <span class="card__num">03</span><svg class="ico card__ico" aria-hidden="true"><use href="#i-snow"/></svg>
+        <h3 data-i18n="amen_climate_title"></h3>
+        <ul class="ticks"><li data-i18n="amen_cli_1"></li><li data-i18n="amen_cli_2"></li><li data-i18n="amen_cli_3"></li><li data-i18n="amen_cli_4"></li></ul>
+      </article>
+      <article class="card reveal">
+        <span class="card__num">04</span><svg class="ico card__ico" aria-hidden="true"><use href="#i-parking"/></svg>
+        <h3 data-i18n="amen_parking_title"></h3>
+        <ul class="ticks"><li data-i18n="amen_park_1"></li><li data-i18n="amen_park_2"></li><li data-i18n="amen_park_3"></li><li data-i18n="amen_park_4"></li></ul>
+      </article>
+      <article class="card reveal">
+        <span class="card__num">05</span><svg class="ico card__ico" aria-hidden="true"><use href="#i-book"/></svg>
+        <h3 data-i18n="amen_leisure_title"></h3>
+        <ul class="ticks"><li data-i18n="amen_lei_1"></li><li data-i18n="amen_lei_2"></li><li data-i18n="amen_lei_3"></li><li data-i18n="amen_lei_4"></li></ul>
+      </article>
+      <article class="card reveal">
+        <span class="card__num">06</span><svg class="ico card__ico" aria-hidden="true"><use href="#i-shield"/></svg>
+        <h3 data-i18n="amen_safety_title"></h3>
+        <ul class="ticks"><li data-i18n="amen_saf_1"></li><li data-i18n="amen_saf_2"></li><li data-i18n="amen_saf_3"></li><li data-i18n="amen_saf_4"></li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DOVE SIAMO ============================ -->
+<section class="section location" id="dove">
+  <div class="container location__grid">
+    <div class="location__text reveal">
+      <p class="eyebrow" data-i18n="loc_label"></p>
+      <h2 class="title" data-i18n="loc_title"></h2>
+      <p class="lead" data-i18n="loc_desc"></p>
+
+      <div class="walk">
+        <p class="walk__title"><svg class="ico" aria-hidden="true"><use href="#i-walk"/></svg><span data-i18n="walk_title"></span></p>
+        <ol class="walk__list" id="walkList">
+          <li style="--w:.24"><span class="walk__name" data-i18n="walk_conad"></span><span class="walk__bar"></span><span class="walk__val">300 <small data-i18n="walk_m"></small></span></li>
+          <li style="--w:.333"><span class="walk__name" data-i18n="walk_beach"></span><span class="walk__bar"></span><span class="walk__val">5 <small data-i18n="walk_min"></small></span></li>
+          <li style="--w:.333"><span class="walk__name" data-i18n="walk_medical"></span><span class="walk__bar"></span><span class="walk__val">5 <small data-i18n="walk_min"></small></span></li>
+          <li style="--w:.667"><span class="walk__name" data-i18n="walk_castle"></span><span class="walk__bar"></span><span class="walk__val">10 <small data-i18n="walk_min"></small></span></li>
+          <li style="--w:1"><span class="walk__name" data-i18n="walk_port"></span><span class="walk__bar"></span><span class="walk__val">15 <small data-i18n="walk_min"></small></span></li>
+        </ol>
+      </div>
+
+      <div class="notes">
+        <div class="note"><svg class="ico" aria-hidden="true"><use href="#i-umbrella"/></svg><div><strong data-i18n="loc_beaches"></strong><span data-i18n="loc_beaches_desc"></span></div></div>
+        <div class="note"><svg class="ico" aria-hidden="true"><use href="#i-plate"/></svg><div><strong data-i18n="loc_restaurants"></strong><span data-i18n="loc_restaurants_desc"></span></div></div>
+      </div>
+    </div>
+
+    <div class="location__map reveal">
+      <div class="mapframe">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3134.35!2d15.240!3d38.2248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1314314b70950aef%3A0x52afa4debfc76b45!2sAttico%20Panoramico%20Casa%20Vacanze%2C%20Via%20Cristoforo%20Colombo%2C%207%2C%2098057%20Milazzo%20ME!5e0!3m2!1sit!2sit!4v1771102290163!5m2!1sit!2sit"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen data-i18n-title="map_title" title=""></iframe>
+      </div>
+      <address class="mapaddr">
+        <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
+        <span>Via Cristoforo Colombo, 7<br>98057 Milazzo (ME) · Sicilia</span>
+      </address>
+      <div class="mapbtns">
+        <a class="btn btn--line btn--sm" href="https://maps.google.com/?q=Via+Cristoforo+Colombo+7+Milazzo+ME" target="_blank" rel="noopener"><span data-i18n="map_open"></span></a>
+        <a class="btn btn--ink btn--sm" href="https://www.google.com/maps/dir/?api=1&amp;destination=38.22509,15.24127" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-route"/></svg><span data-i18n="map_route"></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SCOPRI MILAZZO ============================ -->
+<section class="section discover" id="scopri">
+  <div class="container">
+    <header class="section__head reveal">
+      <p class="eyebrow" data-i18n="disc_label"></p>
+      <h2 class="title" data-i18n="disc_title"></h2>
+      <p class="lead" data-i18n="disc_desc"></p>
+    </header>
+
+    <!-- Le Isole Eolie: mappa illustrata (posizioni reali) -->
+    <div class="eolie reveal">
+      <figure class="eolie__map">
+        <svg viewBox="0 0 680 590" id="eolieSvg" role="img" aria-labelledby="eolieCap">
+          <defs>
+            <radialGradient id="seaGrad" cx="70%" cy="85%" r="95%">
+              <stop offset="0" stop-color="#25506a"/>
+              <stop offset="1" stop-color="#0f2030"/>
+            </radialGradient>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M40 0H0V40" fill="none" stroke="rgba(216,183,122,.07)" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="680" height="590" fill="url(#seaGrad)"/>
+          <rect width="680" height="590" fill="url(#grid)"/>
+          <text x="60" y="110" class="eolie__sea" data-i18n="eolie_sea"></text>
+          <g id="eolieRoutes"></g>
+          <path id="eolieCoast" class="eolie__land"/>
+          <text x="420" y="580" class="eolie__sicily" data-i18n="eolie_sicily"></text>
+          <g id="eolieIslands"></g>
+          <g id="eolieHome"></g>
+          <g class="eolie__compass" transform="translate(62 470)">
+            <circle r="22"/>
+            <path d="M0-17 L5 0 L0 17 L-5 0 Z"/>
+            <path d="M0-17 L5 0 L-5 0 Z" class="eolie__north"/>
+            <text y="-27" text-anchor="middle">N</text>
+          </g>
+        </svg>
+        <figcaption id="eolieCap" data-i18n="eolie_caption"></figcaption>
+      </figure>
+      <div class="eolie__text">
+        <svg class="ico ico--lg" aria-hidden="true"><use href="#i-ship"/></svg>
+        <h3 class="title title--sm" data-i18n="disc_eolie_title"></h3>
+        <p data-i18n="disc_eolie_desc"></p>
+        <ul class="islands" id="islandList"></ul>
+      </div>
+    </div>
+
+    <div class="cards cards--discover">
+      <article class="card card--soft reveal"><svg class="ico card__ico" aria-hidden="true"><use href="#i-castle"/></svg><h3 data-i18n="disc_castle_title"></h3><p data-i18n="disc_castle_desc"></p></article>
+      <article class="card card--soft reveal"><svg class="ico card__ico" aria-hidden="true"><use href="#i-umbrella"/></svg><h3 data-i18n="disc_beach_title"></h3><p data-i18n="disc_beach_desc"></p></article>
+      <article class="card card--soft reveal"><svg class="ico card__ico" aria-hidden="true"><use href="#i-plate"/></svg><h3 data-i18n="disc_food_title"></h3><p data-i18n="disc_food_desc"></p></article>
+      <article class="card card--soft reveal"><svg class="ico card__ico" aria-hidden="true"><use href="#i-route"/></svg><h3 data-i18n="disc_how_title"></h3><p data-i18n="disc_how_desc"></p></article>
+      <article class="card card--soft reveal"><svg class="ico card__ico" aria-hidden="true"><use href="#i-column"/></svg><h3 data-i18n="disc_history_title"></h3><p data-i18n="disc_history_desc"></p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DISPONIBILITÀ ============================ -->
+<section class="section avail" id="disponibilita">
+  <div class="container">
+    <header class="section__head reveal">
+      <p class="eyebrow" data-i18n="avail_label"></p>
+      <h2 class="title" data-i18n="avail_title"></h2>
+      <p class="lead" data-i18n="avail_desc"></p>
+    </header>
+
+    <div class="booking reveal">
+      <div class="cal">
+        <div class="cal__nav">
+          <button type="button" class="iconbtn" id="calPrev" data-i18n-aria="avail_prev"><svg class="ico" aria-hidden="true"><use href="#i-chev-l"/></svg></button>
+          <div class="legend">
+            <span><i class="dot dot--free"></i><span data-i18n="avail_free"></span></span>
+            <span><i class="dot dot--busy"></i><span data-i18n="avail_busy"></span></span>
+            <span><i class="dot dot--mine"></i><span data-i18n="avail_mine"></span></span>
+          </div>
+          <button type="button" class="iconbtn" id="calNext" data-i18n-aria="avail_next"><svg class="ico" aria-hidden="true"><use href="#i-chev-r"/></svg></button>
+        </div>
+        <div class="cal__months" id="calMonths"></div>
+        <p class="cal__status" id="calStatus"></p>
+      </div>
+
+      <aside class="ticket" aria-live="polite">
+        <p class="ticket__hint" id="ticketHint"></p>
+        <div class="ticket__dates">
+          <label class="ticket__field ticket__pick">
+            <span class="ticket__label" data-i18n="avail_checkin"></span>
+            <span class="ticket__value" id="tIn"></span>
+            <input type="date" class="ticket__date" id="dIn" data-i18n-aria="avail_checkin">
+          </label>
+          <div class="ticket__sep" aria-hidden="true"><span id="tNights"></span></div>
+          <label class="ticket__field ticket__pick">
+            <span class="ticket__label" data-i18n="avail_checkout"></span>
+            <span class="ticket__value" id="tOut"></span>
+            <input type="date" class="ticket__date" id="dOut" data-i18n-aria="avail_checkout">
+          </label>
+        </div>
+        <div class="ticket__guests">
+          <span class="ticket__label" data-i18n="avail_guests"></span>
+          <div class="stepper">
+            <button type="button" id="gLess" data-i18n-aria="avail_less"><svg class="ico" aria-hidden="true"><use href="#i-minus"/></svg></button>
+            <span class="stepper__num">
+              <output id="gNum">2</output>
+              <select id="gSel" data-i18n-aria="avail_guests">
+                <option>1</option><option selected>2</option><option>3</option><option>4</option>
+                <option>5</option><option>6</option><option>7</option><option>8</option>
+              </select>
+            </span>
+            <button type="button" id="gMore" data-i18n-aria="avail_more"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button>
+          </div>
+        </div>
+        <a class="btn btn--wa btn--block" id="tSend" href="https://wa.me/393880775449" target="_blank" rel="noopener">
+          <svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span data-i18n="avail_send"></span>
+        </a>
+        <button type="button" class="linkbtn" id="tReset" data-i18n="avail_reset" hidden></button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ RECENSIONI ============================ -->
+<section class="section reviews" id="recensioni">
+  <div class="container">
+    <div class="reviews__grid">
+      <div class="reviews__score reveal">
+        <p class="eyebrow eyebrow--light" data-i18n="rev_label"></p>
+        <h2 class="title title--light" data-i18n="rev_title"></h2>
+        <div class="bigscore">
+          <span class="bigscore__num">5.0</span>
+          <span class="bigscore__stars" aria-hidden="true">★★★★★</span>
+          <span class="bigscore__count" data-i18n="rev_count"></span>
+          <span class="bigscore__src" data-i18n="rev_source"></span>
+        </div>
+      </div>
+      <div class="quotes">
+        <figure class="quote reveal">
+          <span class="quote__mark" aria-hidden="true">“</span>
+          <blockquote data-i18n="rev_text_1"></blockquote>
+          <figcaption><span class="avatar">M</span><span><b>Marco R.</b><small data-i18n="rev_city_1"></small></span><span class="stars" aria-label="5/5">★★★★★</span></figcaption>
+        </figure>
+        <figure class="quote reveal">
+          <span class="quote__mark" aria-hidden="true">“</span>
+          <blockquote data-i18n="rev_text_2"></blockquote>
+          <figcaption><span class="avatar">S</span><span><b>Sophie L.</b><small data-i18n="rev_city_2"></small></span><span class="stars" aria-label="5/5">★★★★★</span></figcaption>
+        </figure>
+        <figure class="quote reveal">
+          <span class="quote__mark" aria-hidden="true">“</span>
+          <blockquote data-i18n="rev_text_3"></blockquote>
+          <figcaption><span class="avatar">A</span><span><b>Alessandro B.</b><small data-i18n="rev_city_3"></small></span><span class="stars" aria-label="5/5">★★★★★</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ DOMANDE FREQUENTI ============================ -->
+<section class="section faq" id="faq">
+  <div class="container faq__grid">
+    <header class="faq__head reveal">
+      <p class="eyebrow" data-i18n="faq_label"></p>
+      <h2 class="title" data-i18n="faq_title"></h2>
+    </header>
+    <div class="faq__list reveal" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ============================ INVITO FINALE ============================ -->
+<section class="cta" id="contatti">
+  <img class="cta__bg" src="{{BASE}}images/DSC5148-scaled-960x800_c.webp" alt="" loading="lazy" decoding="async">
+  <div class="cta__inner reveal">
+    <p class="eyebrow eyebrow--light" data-i18n="cta_label"></p>
+    <h2 class="title title--light title--xl" data-i18n="cta_title"></h2>
+    <p class="cta__desc" data-i18n="cta_desc"></p>
+    <div class="cta__btns">
+      <a class="btn btn--wa" href="https://wa.me/393880775449" target="_blank" rel="noopener" data-wa><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span data-i18n="cta_wa"></span></a>
+      <a class="btn btn--glass" href="tel:+393880775449"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span>+39 388 077 5449</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ PIÈ DI PAGINA ============================ -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a class="brand brand--footer" href="#top">
+        <img src="{{BASE}}images/Attico.jpg" alt="" width="46" height="46" loading="lazy">
+        <span class="brand__text"><span class="brand__name">Attico Panoramico</span><span class="brand__tag" data-i18n="tagline"></span></span>
+      </a>
+      <p data-i18n="footer_desc"></p>
+      <a class="footer__addr" href="https://maps.google.com/?q=Via+Cristoforo+Colombo+7+Milazzo+ME" target="_blank" rel="noopener">Via Cristoforo Colombo, 7 — 98057 Milazzo (ME), Sicilia</a>
+    </div>
+    <nav class="footer__col" aria-label="Link">
+      <h4 data-i18n="footer_links_title"></h4>
+      <ul>
+        <li><a href="#appartamento" data-i18n="nav_apartment"></a></li>
+        <li><a href="#galleria" data-i18n="nav_gallery"></a></li>
+        <li><a href="#servizi" data-i18n="nav_amenities"></a></li>
+        <li><a href="#dove" data-i18n="nav_location"></a></li>
+        <li><a href="#scopri" data-i18n="nav_discover"></a></li>
+        <li><a href="#disponibilita" data-i18n="nav_availability"></a></li>
+        <li><a href="#recensioni" data-i18n="nav_reviews"></a></li>
+      </ul>
+    </nav>
+    <div class="footer__col">
+      <h4 data-i18n="footer_contacts_title"></h4>
+      <ul>
+        <li><a href="tel:+393880775449"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>+39 388 077 5449</a></li>
+        <li><a href="https://wa.me/393880775449" target="_blank" rel="noopener" data-wa><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</a></li>
+        <li><a href="https://pxh2407.github.io/panoramicpenthouse_info/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-book"/></svg><span data-i18n="footer_guide"></span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>CIR 19083049C206347 · CIN IT083049C2FNPHRA9D</p>
+    <p>© <span id="year">2026</span> Attico Panoramico Milazzo · <span data-i18n="footer_rights"></span></p>
+  </div>
+</footer>
+
+<!-- Barra contatti fissa (solo telefono) -->
+<nav class="mobilebar" aria-label="Contatti">
+  <a href="tel:+393880775449"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg><span data-i18n="bar_call"></span></a>
+  <a href="https://wa.me/393880775449" target="_blank" rel="noopener" data-wa class="mobilebar__wa"><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span data-i18n="bar_wa"></span></a>
+</nav>
+
+<!-- Visore foto a tutto schermo -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" hidden>
+  <button type="button" class="lb__btn lb__close" id="lbClose" data-i18n-aria="lb_close"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button>
+  <button type="button" class="lb__btn lb__prev" id="lbPrev" data-i18n-aria="lb_prev"><svg class="ico" aria-hidden="true"><use href="#i-chev-l"/></svg></button>
+  <figure class="lb__fig">
+    <img id="lbImg" src="" alt="">
+    <figcaption><span id="lbCap"></span><span class="lb__count" id="lbCount"></span></figcaption>
+  </figure>
+  <button type="button" class="lb__btn lb__next" id="lbNext" data-i18n-aria="lb_next"><svg class="ico" aria-hidden="true"><use href="#i-chev-r"/></svg></button>
+  <div class="lb__thumbs" id="lbThumbs"></div>
+</div>
+
+<!-- ============================ ICONE ============================ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-guests" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 19.5c0-3.3 2.7-5.6 6-5.6s6 2.3 6 5.6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.6 13.8c2.9.2 5 2.1 5 4.9"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 8c2 0 2-1.5 4-1.5S8 8 10 8s2-1.5 4-1.5S16 8 18 8s2-1.5 4-1.5"/><path d="M2 13c2 0 2-1.5 4-1.5S8 13 10 13s2-1.5 4-1.5S16 13 18 13s2-1.5 4-1.5"/><path d="M2 18c2 0 2-1.5 4-1.5S8 18 10 18s2-1.5 4-1.5S16 18 18 18s2-1.5 4-1.5"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M3.5 17v-4l2-5.2A1.8 1.8 0 0 1 7.2 6.5h9.6a1.8 1.8 0 0 1 1.7 1.3l2 5.2v4z"/><path d="M3.5 13h17M5.5 17v2.2M18.5 17v2.2"/><circle cx="7.5" cy="15" r=".7"/><circle cx="16.5" cy="15" r=".7"/></symbol>
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="2.5" y="8" width="14.5" height="9" rx="2"/><circle cx="8" cy="12.5" r="2.4"/><path d="M17 11l4.5-2.2v7.4L17 14"/><path d="M5.5 17l-1.2 3M14 17l1.2 3"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5z"/><path d="M12 6.5v13"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.7 16a5 5 0 0 1 6.6 0"/><circle cx="12" cy="19" r="1" fill="currentColor"/></symbol>
+  <symbol id="i-pot" viewBox="0 0 24 24"><path d="M4 10.5h16v4.5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M2 10.5h20M9 7.5c0-1.2 1-1.6 1-2.8M13 7.5c0-1.2 1-1.6 1-2.8"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2.5v19M3.8 7.25l16.4 9.5M3.8 16.75l16.4-9.5M9.5 4.2L12 6.3l2.5-2.1M9.5 19.8l2.5-2.1 2.5 2.1"/></symbol>
+  <symbol id="i-parking" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><path d="M9.5 17V7.5h3.2a2.8 2.8 0 0 1 0 5.6H9.5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 8.2-7.5 9.5-4.3-1.3-7.5-5-7.5-9.5V6z"/><path d="M8.8 12l2.2 2.2 4.2-4.4"/></symbol>
+  <symbol id="i-castle" viewBox="0 0 24 24"><path d="M4 21V8h3v2.5h2.5V8h5v2.5H17V8h3v13z"/><path d="M10 21v-4.5a2 2 0 0 1 4 0V21M3 21h18"/></symbol>
+  <symbol id="i-umbrella" viewBox="0 0 24 24"><path d="M12 3.5a9 9 0 0 1 9 8.5H3a9 9 0 0 1 9-8.5z"/><path d="M12 12v6.5a2 2 0 0 1-4 0M12 3.5V2.5"/></symbol>
+  <symbol id="i-ship" viewBox="0 0 24 24"><path d="M3 15.5l1.8 4h14.4l1.8-4z"/><path d="M5.5 15.5V11h13v4.5M9 11V7.5h6V11M12 7.5V4.5"/></symbol>
+  <symbol id="i-plate" viewBox="0 0 24 24"><path d="M7 3v7a2 2 0 0 0 2 2v9M11 3v7a2 2 0 0 1-2 2M9 3v6"/><path d="M17 21V3c-2 1.5-3 4-3 7v3h3"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="6" r="2.2"/><path d="M8.2 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.8"/></symbol>
+  <symbol id="i-column" viewBox="0 0 24 24"><path d="M3.5 7.5L12 3l8.5 4.5M4 7.5h16M6 10v8M10 10v8M14 10v8M18 10v8M3.5 20.5h17"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5h-.01a9.45 9.45 0 0 1-4.82-1.32l-.35-.21-3.58.94.96-3.49-.23-.36a9.43 9.43 0 0 1-1.45-5.04c0-5.22 4.25-9.46 9.48-9.46 2.53 0 4.91.99 6.7 2.78a9.4 9.4 0 0 1 2.77 6.69c0 5.22-4.25 9.47-9.47 9.47zm8.06-17.53A11.33 11.33 0 0 0 12.04.63C5.76.63.66 5.73.65 12a11.3 11.3 0 0 0 1.52 5.68L.55 23.5l5.96-1.56a11.36 11.36 0 0 0 5.43 1.38h.01c6.27 0 11.37-5.1 11.38-11.37 0-3.04-1.18-5.9-3.33-8.04z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.2l1.6 4.2-2.1 1.4a11.5 11.5 0 0 0 5.2 5.2l1.4-2.1 4.2 1.6V17a2 2 0 0 1-2 2A15.5 15.5 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-walk" viewBox="0 0 24 24"><circle cx="13.5" cy="4" r="1.8"/><path d="M9 21l2.6-7 2.9 2.6V21M7.5 12l1.8-4.3 3.8-.6 2.4 3.6 2.6 1M12.3 13.8l-1.2-5.6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-chev-l" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-chev-r" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-sunset" viewBox="0 0 24 24"><path d="M3 17.5h18M7 21h10M7 17.5a5 5 0 0 1 10 0M12 3.5V10M9.5 7.5L12 10l2.5-2.5M4.6 12.4l1.4 1.4M19.4 12.4L18 13.8"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+  <symbol id="i-cloud-sun" viewBox="0 0 24 24"><path d="M8.5 5V3.3M3.6 7.2L2.4 6M13.4 7.2L14.6 6M1.8 11h1.7M5.3 12.6a3.6 3.6 0 0 1 6.4-3.4"/><path d="M9 20h9a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.6-.8A3.9 3.9 0 0 0 9 20z"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18.5h10.5a4 4 0 0 0 .4-8A6 6 0 0 0 6.3 9.6 4.5 4.5 0 0 0 7 18.5z"/></symbol>
+  <symbol id="i-fog" viewBox="0 0 24 24"><path d="M3 8h14M5 12h16M3 16h14M7 20h10"/></symbol>
+  <symbol id="i-rain" viewBox="0 0 24 24"><path d="M7 15h10.5a4 4 0 0 0 .4-8A6 6 0 0 0 6.3 6.1 4.5 4.5 0 0 0 7 15z"/><path d="M8 18l-1 2.5M12 18l-1 2.5M16 18l-1 2.5"/></symbol>
+  <symbol id="i-storm" viewBox="0 0 24 24"><path d="M7 15h10.5a4 4 0 0 0 .4-8A6 6 0 0 0 6.3 6.1 4.5 4.5 0 0 0 7 15z"/><path d="M12.5 15l-2 3.5h3l-2 3.5"/></symbol>
+</svg>
+
+<script src="{{BASE}}testi.js?v=4"></script>
+<script src="{{BASE}}app.js?v=5"></script>
+</body>
+</html>
