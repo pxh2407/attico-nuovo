@@ -1,0 +1,12 @@
+# robots.txt — Attico Panoramico Milazzo
+# https://www.atticopanoramico.it/
+
+User-agent: *
+Allow: /
+# File di servizio del calendario: non sono pagine
+Disallow: /calendar-proxy.php
+Disallow: /calendar-cache.json
+Disallow: /cgi-bin/
+Disallow: /*.zip$
+
+Sitemap: https://www.atticopanoramico.it/sitemap.xml

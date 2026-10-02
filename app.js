@@ -45,14 +45,18 @@
     return p || './';
   }
 
-  /* I testi sono già scritti nella pagina dal generatore (genera-pagine.js);
-     qui si riapplicano per sicurezza e si accende il pulsante della lingua */
+  /* I testi, la galleria e le domande sono già scritti nella pagina dal generatore
+     (genera-pagine.js): riscriverli rallenterebbe l'apertura. Si scrivono solo se mancano. */
+  var giaScritta = !!($('[data-i18n="hero_sub"]') && $('[data-i18n="hero_sub"]').innerHTML.trim());
+
   function applicaLingua(l) {
     lang = l;
-    $$('[data-i18n]').forEach(function (el) { el.innerHTML = t(el.getAttribute('data-i18n')); });
-    $$('[data-i18n-aria]').forEach(function (el) { el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria'))); });
-    $$('[data-i18n-alt]').forEach(function (el) { el.setAttribute('alt', t(el.getAttribute('data-i18n-alt'))); });
-    $$('[data-i18n-title]').forEach(function (el) { el.setAttribute('title', t(el.getAttribute('data-i18n-title'))); });
+    if (!giaScritta) {
+      $$('[data-i18n]').forEach(function (el) { el.innerHTML = t(el.getAttribute('data-i18n')); });
+      $$('[data-i18n-aria]').forEach(function (el) { el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria'))); });
+      $$('[data-i18n-alt]').forEach(function (el) { el.setAttribute('alt', t(el.getAttribute('data-i18n-alt'))); });
+      $$('[data-i18n-title]').forEach(function (el) { el.setAttribute('title', t(el.getAttribute('data-i18n-title'))); });
+    }
 
     $$('[data-lang]').forEach(function (b) {
       var on = b.getAttribute('data-lang') === l;
@@ -61,8 +65,8 @@
     });
 
     aggiornaBurger();
-    disegnaGalleria();
-    disegnaFaq();
+    if (giaScritta && ggrid.children.length) ritardiGalleria(); else disegnaGalleria();
+    if (!giaScritta || !$('#faqList').children.length) disegnaFaq();
     aggiornaLive();
     disegnaCalendario();
   }
@@ -91,15 +95,28 @@
     var max = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
     if (mobilebar) mobilebar.classList.toggle('is-on', y > window.innerHeight * 0.6 && !inPrenotazione);
+    inAttesa = false;
+  }
+  /* Al massimo un aggiornamento per fotogramma (evita ricalcoli della pagina a ogni evento) */
+  var inAttesa = false;
+  function suScrollPresto() {
+    if (inAttesa) return;
+    inAttesa = true;
+    requestAnimationFrame(suScroll);
   }
   /* Nella zona prenotazione la barra fissa si nasconde: non deve coprire le caselle */
   var inPrenotazione = false;
   if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (v) { inPrenotazione = v[0].isIntersecting; suScroll(); })
+    new IntersectionObserver(function (v) { inPrenotazione = v[0].isIntersecting; suScrollPresto(); })
       .observe($('#disponibilita'));
+    /* Animazioni continue (foto, sigillo, rotte delle Eolie) ferme quando non si vedono */
+    var ioAnim = new IntersectionObserver(function (voci) {
+      voci.forEach(function (v) { v.target.classList.toggle('anim-off', !v.isIntersecting); });
+    });
+    $$('.hero__visual, .eolie').forEach(function (x) { ioAnim.observe(x); });
   }
-  window.addEventListener('scroll', suScroll, { passive: true });
-  window.addEventListener('resize', suScroll);
+  window.addEventListener('scroll', suScrollPresto, { passive: true });
+  window.addEventListener('resize', suScrollPresto);
 
   function aggiornaBurger() {
     var aperto = !menu.hidden;
@@ -223,18 +240,25 @@
   var ggrid = $('#ggrid');
   var filtro = 'tutte';
 
+  /* Stesso codice HTML prodotto da genera-pagine.js (vociGalleria): se si cambia qui, cambiare anche là.
+     Miniature 480 px per i telefoni, 960 px per gli schermi grandi; testo alternativo descrittivo per Google Immagini */
+  function voceGalleria(f, i) {
+    var cap = f[lang] || f.it, q = function (s) { return s.replace(/"/g, '&quot;'); };
+    var largo = f.forma === 'grande' || f.forma === 'larga';
+    var piccola = f.file.replace('960x800', '480x400'), media = f.file.replace('960x800', '720x600');
+    return '<button type="button" class="gitem' + (f.forma ? ' g--' + f.forma : '') + '" data-i="' + i + '" aria-label="' + q(t('gallery_open') + ': ' + cap) + '">' +
+      '<img src="' + BASE + 'images/' + f.file + '" srcset="' + BASE + 'images/' + piccola + ' 480w, ' + BASE + 'images/' + media + ' 720w, ' + BASE + 'images/' + f.file + ' 960w" ' +
+      'sizes="' + (largo ? '(max-width: 760px) calc(100vw - 32px), 600px' : '(max-width: 760px) calc(50vw - 21px), (max-width: 980px) 50vw, 400px') + '" ' +
+      'alt="' + q(cap + ' – ' + t('img_alt')) + '" width="960" height="800" loading="lazy" decoding="async">' +
+      '<span class="gitem__cap">' + cap + '</span></button>';
+  }
+  function ritardiGalleria() {
+    $$('.gitem', ggrid).forEach(function (b, k) { b.style.animationDelay = (k * 45) + 'ms'; });
+  }
   function disegnaGalleria() {
     ggrid.classList.toggle('is-filtered', filtro !== 'tutte');
-    var html = '';
-    FOTO.forEach(function (f, i) {
-      if (filtro !== 'tutte' && f.cat !== filtro) return;
-      var cap = f[lang] || f.it;
-      html += '<button type="button" class="gitem' + (f.forma ? ' g--' + f.forma : '') + '" data-i="' + i + '" aria-label="' + t('gallery_open') + ': ' + cap.replace(/"/g, '&quot;') + '">' +
-        '<img src="' + BASE + 'images/' + f.file + '" alt="' + cap.replace(/"/g, '&quot;') + '" width="960" height="800" loading="lazy" decoding="async">' +
-        '<span class="gitem__cap">' + cap + '</span></button>';
-    });
-    ggrid.innerHTML = html;
-    $$('.gitem', ggrid).forEach(function (b, k) { b.style.animationDelay = (k * 45) + 'ms'; });
+    ggrid.innerHTML = FOTO.map(function (f, i) { return (filtro === 'tutte' || f.cat === filtro) ? voceGalleria(f, i) : ''; }).join('');
+    ritardiGalleria();
   }
 
   $$('#filters .chip').forEach(function (c) {
@@ -685,7 +709,7 @@
   disegnaEolie();
   applicaLingua(lang);
   avviaAnimazioni();
-  suScroll();
+  suScrollPresto();
   caricaMeteo();
   caricaCalendario();
 })();

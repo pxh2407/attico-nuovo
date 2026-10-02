@@ -3,10 +3,8 @@
 <head>
 {{SEO}}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{BASE}}stile.css?v=2">
+  <link rel="stylesheet" href="{{BASE}}stile.css?v=4">
+  <script>document.documentElement.classList.add('js');</script>
 {{REINDIRIZZA}}
 </head>
 
@@ -20,7 +18,7 @@
   <div class="cinbar">CIN <b>IT083049C2FNPHRA9D</b></div>
   <div class="header__bar">
     <a class="brand" href="#top">
-      <img src="{{BASE}}images/Attico.jpg" alt="" width="46" height="46">
+      <img src="{{BASE}}images/Attico-120.webp" alt="" width="46" height="46">
       <span class="brand__text">
         <span class="brand__name">Attico Panoramico</span>
         <span class="brand__tag" data-i18n="tagline"></span>
@@ -109,16 +107,21 @@
 
     <div class="hero__visual">
       <div class="arch arch--hero">
-        <img src="{{BASE}}images/DSC5134-scaled-960x800_c.webp" width="960" height="800" fetchpriority="high" decoding="async" data-i18n-alt="hero_alt" alt="">
+        <img src="{{BASE}}images/DSC5134-scaled-960x800_c.webp" srcset="{{BASE}}images/DSC5134-scaled-480x400_c.webp 480w, {{BASE}}images/DSC5134-scaled-720x600_c.webp 720w, {{BASE}}images/DSC5134-scaled-960x800_c.webp 960w" sizes="(max-width: 760px) calc(100vw - 32px), 520px" width="960" height="800" fetchpriority="high" data-i18n-alt="hero_alt" alt="">
       </div>
-      <svg class="seal" viewBox="0 0 200 200" aria-hidden="true">
-        <defs><path id="sealPath" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
-        <circle cx="100" cy="100" r="98" class="seal__bg"/>
-        <circle cx="100" cy="100" r="56" class="seal__ring"/>
-        <text class="seal__text"><textPath href="#sealPath" textLength="462">ATTICO PANORAMICO · MILAZZO · SICILIA ·</textPath></text>
-        <text x="100" y="98" text-anchor="middle" class="seal__num">5.0</text>
-        <text x="100" y="122" text-anchor="middle" class="seal__stars">★★★★★</text>
-      </svg>
+      <!-- Sigillo: la base resta ferma, ruota solo la scritta (livello separato, più leggero) -->
+      <div class="seal" aria-hidden="true">
+        <svg class="seal__base" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="98" class="seal__bg"/>
+          <circle cx="100" cy="100" r="56" class="seal__ring"/>
+          <text x="100" y="98" text-anchor="middle" class="seal__num">5.0</text>
+          <text x="100" y="122" text-anchor="middle" class="seal__stars">★★★★★</text>
+        </svg>
+        <svg class="seal__spin" viewBox="0 0 200 200">
+          <defs><path id="sealPath" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+          <text class="seal__text"><textPath href="#sealPath" textLength="462">ATTICO PANORAMICO · MILAZZO · SICILIA ·</textPath></text>
+        </svg>
+      </div>
     </div>
   </div>
 
@@ -161,8 +164,8 @@
 <section class="section about" id="appartamento">
   <div class="container about__grid">
     <div class="about__visual reveal">
-      <div class="arch arch--about"><img src="{{BASE}}images/DSC5102-scaled-960x800_c.webp" width="960" height="800" loading="lazy" decoding="async" alt=""></div>
-      <div class="about__inset"><img src="{{BASE}}images/DSC4989-scaled-960x800_c.webp" width="960" height="800" loading="lazy" decoding="async" alt=""></div>
+      <div class="arch arch--about"><img src="{{BASE}}images/DSC5102-scaled-960x800_c.webp" srcset="{{BASE}}images/DSC5102-scaled-480x400_c.webp 480w, {{BASE}}images/DSC5102-scaled-720x600_c.webp 720w, {{BASE}}images/DSC5102-scaled-960x800_c.webp 960w" sizes="(max-width: 760px) 80vw, 460px" width="960" height="800" loading="lazy" decoding="async" data-i18n-alt="about_img_alt" alt=""></div>
+      <div class="about__inset"><img src="{{BASE}}images/DSC4989-scaled-480x400_c.webp" srcset="{{BASE}}images/DSC4989-scaled-480x400_c.webp 480w, {{BASE}}images/DSC4989-scaled-960x800_c.webp 960w" sizes="(max-width: 760px) 45vw, 260px" width="480" height="400" loading="lazy" decoding="async" data-i18n-alt="about_inset_alt" alt=""></div>
     </div>
     <div class="about__text reveal">
       <p class="eyebrow" data-i18n="about_label"></p>
@@ -468,14 +471,14 @@
   <div class="container footer__grid">
     <div class="footer__brand">
       <a class="brand brand--footer" href="#top">
-        <img src="{{BASE}}images/Attico.jpg" alt="" width="46" height="46" loading="lazy">
+        <img src="{{BASE}}images/Attico-120.webp" alt="" width="46" height="46" loading="lazy">
         <span class="brand__text"><span class="brand__name">Attico Panoramico</span><span class="brand__tag" data-i18n="tagline"></span></span>
       </a>
       <p data-i18n="footer_desc"></p>
       <a class="footer__addr" href="https://maps.google.com/?q=Via+Cristoforo+Colombo+7+Milazzo+ME" target="_blank" rel="noopener">Via Cristoforo Colombo, 7 — 98057 Milazzo (ME), Sicilia</a>
     </div>
     <nav class="footer__col" aria-label="Link">
-      <h4 data-i18n="footer_links_title"></h4>
+      <h2 class="footer__title" data-i18n="footer_links_title"></h2>
       <ul>
         <li><a href="#appartamento" data-i18n="nav_apartment"></a></li>
         <li><a href="#galleria" data-i18n="nav_gallery"></a></li>
@@ -487,7 +490,7 @@
       </ul>
     </nav>
     <div class="footer__col">
-      <h4 data-i18n="footer_contacts_title"></h4>
+      <h2 class="footer__title" data-i18n="footer_contacts_title"></h2>
       <ul>
         <li><a href="tel:+393880775449"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>+39 388 077 5449</a></li>
         <li><a href="https://wa.me/393880775449" target="_blank" rel="noopener" data-wa><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</a></li>
@@ -558,7 +561,7 @@
   <symbol id="i-storm" viewBox="0 0 24 24"><path d="M7 15h10.5a4 4 0 0 0 .4-8A6 6 0 0 0 6.3 6.1 4.5 4.5 0 0 0 7 15z"/><path d="M12.5 15l-2 3.5h3l-2 3.5"/></symbol>
 </svg>
 
-<script src="{{BASE}}testi.js?v=4"></script>
-<script src="{{BASE}}app.js?v=5"></script>
+<script src="{{BASE}}testi.js?v=5" defer></script>
+<script src="{{BASE}}app.js?v=6" defer></script>
 </body>
 </html>

@@ -1,0 +1,88 @@
+# =============================================================================
+# .htaccess — Attico Panoramico Milazzo (hosting Ergonet / Apache)
+# Aggiornato il 2026-10-02 per la SEO: un solo indirizzo per ogni pagina,
+# sempre https://www. — redirect 301 diretti, senza passaggi intermedi.
+# (Copia della versione precedente: CLAUDE\ATTICO BACKUP SITO VECCHIO 2026-10-02)
+# =============================================================================
+
+RewriteEngine On
+
+# --- 1. Versione unica del sito: https://www.atticopanoramico.it ---
+# ATTENZIONE: su Ergonet l'https è gestito a monte, quindi %{HTTPS} qui vale
+# sempre "off" (usarlo crea un loop infinito, già successo a luglio 2026).
+# Il protocollo vero arriva nell'intestazione X-Forwarded-Proto (http / https).
+RewriteCond %{HTTP_HOST} !^www\. [NC,OR]
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+RewriteRule ^ https://www.%1%{REQUEST_URI} [L,R=301,NE]
+
+# --- 2. Vecchi indirizzi ?lang= → pagine delle lingue ---
+RewriteCond %{QUERY_STRING} (?:^|&)lang=en(?:&|$) [NC]
+RewriteRule ^(index\.html)?$ https://www.atticopanoramico.it/en/? [L,R=301]
+RewriteCond %{QUERY_STRING} (?:^|&)lang=de(?:&|$) [NC]
+RewriteRule ^(index\.html)?$ https://www.atticopanoramico.it/de/? [L,R=301]
+RewriteCond %{QUERY_STRING} (?:^|&)lang=fr(?:&|$) [NC]
+RewriteRule ^(index\.html)?$ https://www.atticopanoramico.it/fr/? [L,R=301]
+RewriteCond %{QUERY_STRING} (?:^|&)lang=it(?:&|$) [NC]
+RewriteRule ^(index\.html)?$ https://www.atticopanoramico.it/? [L,R=301]
+
+# --- 3. /index.html → indirizzo pulito (/ , /en/ , /de/ , /fr/) ---
+RewriteCond %{THE_REQUEST} \s/+((?:en/|de/|fr/)?)index\.html[\s?] [NC]
+RewriteRule ^ https://www.atticopanoramico.it/%1 [L,R=301]
+
+# --- 4. Cartelle delle lingue senza barra finale → con la barra ---
+RewriteRule ^(en|de|fr)$ https://www.atticopanoramico.it/$1/ [L,R=301]
+
+# --- 5. Vecchie pagine WordPress → pagina principale ---
+RewriteRule ^(home|appartamento|casa-vacanze|contatti|gallery|galleria|chi-siamo|servizi|dove-siamo|recensioni|prenotazioni|disponibilita)/?$ https://www.atticopanoramico.it/ [L,R=301,NC]
+RewriteRule ^wp-admin(/.*)?$ https://www.atticopanoramico.it/ [L,R=301]
+RewriteRule ^wp-login\.php$ https://www.atticopanoramico.it/ [L,R=301]
+RewriteRule ^(wp-content|wp-includes)/ - [F,L]
+RewriteRule ^xmlrpc\.php$ - [F,L]
+
+# --- 6. Barra finale superflua (tranne le cartelle) → senza barra ---
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ https://www.atticopanoramico.it/$1 [L,R=301]
+
+# --- Pagina 404 personalizzata ---
+ErrorDocument 404 /404.html
+
+# --- Tipi di file ---
+AddType image/webp .webp
+AddType font/woff2 .woff2
+AddDefaultCharset UTF-8
+
+# --- Cache del browser (CSS e JS hanno ?v=N nell'indirizzo: si possono tenere a lungo) ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                 "access plus 1 hour"
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType text/javascript           "access plus 1 year"
+  ExpiresByType image/jpeg                "access plus 6 months"
+  ExpiresByType image/png                 "access plus 6 months"
+  ExpiresByType image/webp                "access plus 6 months"
+  ExpiresByType image/svg+xml             "access plus 6 months"
+  ExpiresByType image/x-icon              "access plus 1 year"
+  ExpiresByType font/woff2                "access plus 1 year"
+  ExpiresByType application/xml           "access plus 1 day"
+  ExpiresByType text/xml                  "access plus 1 day"
+  ExpiresByType application/json          "access plus 0 seconds"
+</IfModule>
+
+# --- Compressione ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/javascript text/javascript application/json application/ld+json image/svg+xml
+</IfModule>
+
+# --- Intestazioni di sicurezza ---
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  # File di servizio da non mostrare nei risultati di ricerca
+  <FilesMatch "\.(php|json|txt)$">
+    Header set X-Robots-Tag "noindex"
+  </FilesMatch>
+</IfModule>
