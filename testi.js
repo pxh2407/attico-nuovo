@@ -87,7 +87,7 @@ it: {
 
   hero_eyebrow: 'Milazzo · Sicilia',
   hero_sub: 'Vista mare nel centro storico di Milazzo',
-  hero_desc: 'Eleganza, comfort e panorami mozzafiato nel cuore di Milazzo. Terrazza privata, garage, home cinema e tutto ciò che rende unico il tuo soggiorno.',
+  hero_desc: 'Eleganza, comfort e panorami mozzafiato nel cuore di Milazzo. Terrazza privata, garage incluso, home cinema e il porto per le Isole Eolie a 15 minuti a piedi.',
   hero_cta_dates: 'Verifica le date',
   hero_cta_wa: 'Scrivici su WhatsApp',
   hero_rating_label: '82 recensioni',
@@ -174,7 +174,7 @@ it: {
   amen_saf_4: 'Kit pronto soccorso',
 
   loc_label: 'Dove siamo',
-  loc_title: 'Nel cuore di Milazzo,<br>tutto a portata di mano',
+  loc_title: 'Nel centro di Milazzo,<br>a 15 minuti dal porto',
   loc_desc: 'Via Cristoforo Colombo, 7 — a pochi passi da ristoranti, bar, supermercati, spiagge e dal porto per le Isole Eolie.',
   walk_title: 'A piedi dall\'Attico',
   walk_conad: 'Supermercato Conad',
@@ -310,7 +310,7 @@ en: {
 
   hero_eyebrow: 'Milazzo · Sicily',
   hero_sub: 'Sea view in Milazzo\'s historic centre',
-  hero_desc: 'Elegance, comfort and breathtaking panoramas in the heart of Milazzo. Private terrace, garage, home cinema and everything that makes your stay unique.',
+  hero_desc: 'Elegance, comfort and breathtaking panoramas in the heart of Milazzo. Private terrace, garage included, home cinema and the Aeolian Islands ferry port a 15-minute walk away.',
   hero_cta_dates: 'Check dates',
   hero_cta_wa: 'Write us on WhatsApp',
   hero_rating_label: '82 reviews',
@@ -397,7 +397,7 @@ en: {
   amen_saf_4: 'First aid kit',
 
   loc_label: 'Location',
-  loc_title: 'In the heart of Milazzo,<br>everything within reach',
+  loc_title: 'In central Milazzo,<br>15 minutes from the port',
   loc_desc: 'Via Cristoforo Colombo, 7 — just steps from restaurants, bars, supermarkets, beaches and the port for the Aeolian Islands.',
   walk_title: 'On foot from the Attico',
   walk_conad: 'Conad Supermarket',
@@ -533,7 +533,7 @@ de: {
 
   hero_eyebrow: 'Milazzo · Sizilien',
   hero_sub: 'Meerblick in der Altstadt von Milazzo',
-  hero_desc: 'Eleganz, Komfort und atemberaubende Panoramen im Herzen von Milazzo. Private Terrasse, Garage, Heimkino und alles, was Ihren Aufenthalt einzigartig macht.',
+  hero_desc: 'Eleganz, Komfort und atemberaubende Panoramen im Herzen von Milazzo. Private Terrasse, Garage inklusive, Heimkino – und der Fährhafen zu den Äolischen Inseln nur 15 Gehminuten entfernt.',
   hero_cta_dates: 'Termine prüfen',
   hero_cta_wa: 'Schreiben Sie uns auf WhatsApp',
   hero_rating_label: '82 Bewertungen',
@@ -620,7 +620,7 @@ de: {
   amen_saf_4: 'Erste-Hilfe-Set',
 
   loc_label: 'Lage',
-  loc_title: 'Im Herzen von Milazzo,<br>alles in Reichweite',
+  loc_title: 'Im Zentrum von Milazzo,<br>15 Minuten vom Hafen',
   loc_desc: 'Via Cristoforo Colombo, 7 — nur wenige Schritte von Restaurants, Bars, Supermärkten, Stränden und dem Hafen zu den Äolischen Inseln.',
   walk_title: 'Zu Fuß vom Attico',
   walk_conad: 'Conad Supermarkt',
@@ -756,7 +756,7 @@ fr: {
 
   hero_eyebrow: 'Milazzo · Sicile',
   hero_sub: 'Vue sur mer au cœur historique de Milazzo',
-  hero_desc: 'Élégance, confort et panoramas à couper le souffle au cœur de Milazzo. Terrasse privée, garage, home cinéma et tout ce qui rend votre séjour unique.',
+  hero_desc: 'Élégance, confort et panoramas à couper le souffle au cœur de Milazzo. Terrasse privée, garage inclus, home cinéma et le port des îles Éoliennes à 15 minutes à pied.',
   hero_cta_dates: 'Vérifier les dates',
   hero_cta_wa: 'Écrivez-nous sur WhatsApp',
   hero_rating_label: '82 avis',
@@ -843,7 +843,7 @@ fr: {
   amen_saf_4: 'Trousse de premiers secours',
 
   loc_label: 'Situation',
-  loc_title: 'Au cœur de Milazzo,<br>tout à portée de main',
+  loc_title: 'Au centre de Milazzo,<br>à 15 minutes du port',
   loc_desc: 'Via Cristoforo Colombo, 7 — à quelques pas des restaurants, bars, supermarchés, plages et du port vers les Îles Éoliennes.',
   walk_title: 'À pied depuis l\'Attico',
   walk_conad: 'Supermarché Conad',
