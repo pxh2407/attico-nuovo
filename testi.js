@@ -267,7 +267,7 @@ it: {
   faq_title: 'Tutto quello che vuoi sapere',
   faq: [
     ['Dove si trova l\'Attico Panoramico di Milazzo?', 'L\'appartamento si trova in Via Cristoforo Colombo 7, nel centro storico di Milazzo (ME), Sicilia. È a pochi passi da ristoranti, bar, supermercati, spiagge e dal porto per le Isole Eolie.'],
-    ['Quanti ospiti può ospitare l\'attico?', 'L\'appartamento può accogliere fino a 8 ospiti. Dispone di 3 camere da letto (due matrimoniali e una con due letti singoli), un divano letto matrimoniale nel salone, 2 bagni, cucina attrezzata e terrazza panoramica.'],
+    ['Quanti ospiti può ospitare l\'attico?', 'L\'appartamento, di circa 160 m² più la terrazza, può accogliere fino a 8 ospiti. Dispone di 3 camere da letto (due matrimoniali e una con due letti singoli), un divano letto matrimoniale nel salone, 2 bagni, cucina attrezzata e terrazza panoramica.'],
     ['È incluso il parcheggio?', 'Sì, l\'appartamento include un garage privato con accesso tramite telecomando, senza costi aggiuntivi.'],
     ['Qual è la valutazione dell\'appartamento?', 'L\'Attico Panoramico ha una valutazione di 5,0 su 5 su Airbnb, con 82 recensioni degli ospiti. Su Booking.com ha 9,8 su 10 (22 recensioni) e su Vrbo 9,6 su 10 (5 recensioni).'],
     ['Come contattare il proprietario per prenotare?', 'Scrivici su WhatsApp al +39 388 077 5449: è il modo più rapido per informazioni, disponibilità e prenotazioni.'],
@@ -490,7 +490,7 @@ en: {
   faq_title: 'Everything you want to know',
   faq: [
     ['Where is the Attico Panoramico in Milazzo located?', 'The apartment is at Via Cristoforo Colombo 7, in the historic centre of Milazzo (ME), Sicily. It is just steps from restaurants, bars, supermarkets, beaches and the port for the Aeolian Islands.'],
-    ['How many guests can the penthouse accommodate?', 'The apartment sleeps up to 8 guests. It has 3 bedrooms (two doubles and one with two single beds), a double sofa bed in the living room, 2 bathrooms, a fully equipped kitchen and a panoramic terrace.'],
+    ['How many guests can the penthouse accommodate?', 'The apartment (about 160 m², plus the terrace) sleeps up to 8 guests. It has 3 bedrooms (two doubles and one with two single beds), a double sofa bed in the living room, 2 bathrooms, a fully equipped kitchen and a panoramic terrace.'],
     ['Is parking included?', 'Yes, the apartment includes a private garage with remote-controlled access, at no extra cost.'],
     ['What is the apartment\'s rating?', 'The Attico Panoramico is rated 5.0 out of 5 on Airbnb, with 82 guest reviews. On Booking.com it scores 9.8 out of 10 (22 reviews) and on Vrbo 9.6 out of 10 (5 reviews).'],
     ['How do I contact the owner to book?', 'Write to us on WhatsApp at +39 388 077 5449: it is the quickest way to ask about availability and book.'],
@@ -713,7 +713,7 @@ de: {
   faq_title: 'Alles, was Sie wissen möchten',
   faq: [
     ['Wo befindet sich das Attico Panoramico in Milazzo?', 'Die Wohnung befindet sich in der Via Cristoforo Colombo 7, im historischen Zentrum von Milazzo (ME), Sizilien. Restaurants, Bars, Supermärkte, Strände und der Hafen zu den Äolischen Inseln sind nur wenige Schritte entfernt.'],
-    ['Wie viele Gäste können in der Wohnung übernachten?', 'Die Wohnung bietet Platz für bis zu 8 Gäste. Sie verfügt über 3 Schlafzimmer (zwei Doppelzimmer und eines mit zwei Einzelbetten), ein Doppelschlafsofa im Wohnzimmer, 2 Badezimmer, eine voll ausgestattete Küche und eine Panoramaterrasse.'],
+    ['Wie viele Gäste können in der Wohnung übernachten?', 'Die Wohnung (rund 160 m², dazu die Terrasse) bietet Platz für bis zu 8 Gäste. Sie verfügt über 3 Schlafzimmer (zwei Doppelzimmer und eines mit zwei Einzelbetten), ein Doppelschlafsofa im Wohnzimmer, 2 Badezimmer, eine voll ausgestattete Küche und eine Panoramaterrasse.'],
     ['Ist ein Parkplatz inbegriffen?', 'Ja, die Wohnung verfügt über eine private Garage mit Zugang per Fernbedienung, ohne zusätzliche Kosten.'],
     ['Wie ist die Bewertung der Wohnung?', 'Das Attico Panoramico hat auf Airbnb eine Bewertung von 5,0 von 5 bei 82 Gästebewertungen. Auf Booking.com erreicht es 9,8 von 10 (22 Bewertungen) und auf Vrbo 9,6 von 10 (5 Bewertungen).'],
     ['Wie kontaktiere ich den Eigentümer für eine Buchung?', 'Schreiben Sie uns auf WhatsApp unter +39 388 077 5449: So erfahren Sie am schnellsten alles über Verfügbarkeit und Buchung.'],
@@ -936,7 +936,7 @@ fr: {
   faq_title: 'Tout ce que vous voulez savoir',
   faq: [
     ['Où se trouve l\'Attico Panoramico de Milazzo ?', 'L\'appartement se trouve Via Cristoforo Colombo 7, dans le centre historique de Milazzo (ME), en Sicile. Il est à quelques pas des restaurants, bars, supermarchés, plages et du port vers les Îles Éoliennes.'],
-    ['Combien de voyageurs l\'appartement peut-il accueillir ?', 'L\'appartement peut accueillir jusqu\'à 8 voyageurs. Il dispose de 3 chambres (deux chambres doubles et une avec deux lits simples), d\'un canapé-lit double dans le séjour, de 2 salles de bains, d\'une cuisine équipée et d\'une terrasse panoramique.'],
+    ['Combien de voyageurs l\'appartement peut-il accueillir ?', 'L\'appartement (environ 160 m², plus la terrasse) peut accueillir jusqu\'à 8 voyageurs. Il dispose de 3 chambres (deux chambres doubles et une avec deux lits simples), d\'un canapé-lit double dans le séjour, de 2 salles de bains, d\'une cuisine équipée et d\'une terrasse panoramique.'],
     ['Le parking est-il inclus ?', 'Oui, l\'appartement comprend un garage privé avec accès par télécommande, sans frais supplémentaires.'],
     ['Quelle est la note de l\'appartement ?', 'L\'Attico Panoramico obtient 5,0 sur 5 sur Airbnb, avec 82 avis de voyageurs. Sur Booking.com, il obtient 9,8 sur 10 (22 avis) et sur Vrbo 9,6 sur 10 (5 avis).'],
     ['Comment contacter le propriétaire pour réserver ?', 'Écrivez-nous sur WhatsApp au +39 388 077 5449 : c\'est le moyen le plus rapide pour connaître les disponibilités et réserver.'],
