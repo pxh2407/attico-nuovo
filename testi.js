@@ -287,6 +287,8 @@ it: {
   footer_contacts_title: 'Contatti',
   footer_rights: 'Tutti i diritti riservati',
   footer_guide: 'Guida Casa',
+  footer_privacy: 'Privacy e cookie',
+  footer_cookie: 'Preferenze cookie',
   bar_wa: 'WhatsApp'
 },
 
@@ -511,6 +513,8 @@ en: {
   footer_contacts_title: 'Contacts',
   footer_rights: 'All rights reserved',
   footer_guide: 'House Guide',
+  footer_privacy: 'Privacy & cookies',
+  footer_cookie: 'Cookie settings',
   bar_wa: 'WhatsApp'
 },
 
@@ -735,6 +739,8 @@ de: {
   footer_contacts_title: 'Kontakt',
   footer_rights: 'Alle Rechte vorbehalten',
   footer_guide: 'Hausführer',
+  footer_privacy: 'Datenschutz',
+  footer_cookie: 'Cookie-Einstellungen',
   bar_wa: 'WhatsApp'
 },
 
@@ -959,6 +965,8 @@ fr: {
   footer_contacts_title: 'Contacts',
   footer_rights: 'Tous droits réservés',
   footer_guide: 'Guide de la maison',
+  footer_privacy: 'Confidentialité',
+  footer_cookie: 'Préférences cookies',
   bar_wa: 'WhatsApp'
 }
 };

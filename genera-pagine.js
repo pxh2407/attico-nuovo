@@ -20,9 +20,11 @@ const ctx = {};
 vm.createContext(ctx);
 vm.runInContext(leggi('testi.js') + '\n;this.TESTI = TESTI; this.FOTO = FOTO;', ctx);
 vm.runInContext(leggi('guide.js') + '\n;this.GUIDE = GUIDE; this.GUIDE_UI = GUIDE_UI; this.GUIDE_ISOLE = GUIDE_ISOLE;', ctx);
+vm.runInContext(leggi('privacy.js') + '\n;this.PRIVACY = PRIVACY;', ctx);
 const TESTI = ctx.TESTI;
 const FOTO = ctx.FOTO;
 const GUIDE = ctx.GUIDE;
+const PRIVACY = ctx.PRIVACY;
 const SITO = 'https://www.atticopanoramico.it/';
 const GUIDE_DATA = '2026-10-02';   /* data di pubblicazione/ultima revisione delle guide */
 
@@ -81,6 +83,7 @@ for (const { l, base, file } of LINGUE) {
     .replace('{{SEO}}', leggi('seo/' + l + '.html').replace(/\s+$/, ''))
     .replace('{{REINDIRIZZA}}', l === 'it' ? REINDIRIZZA : '')
     .replace('{{GUIDE_LINKS}}', linkGuide(l, base))
+    .replace(/\{\{PRIVACY\}\}/g, base + PRIVACY[l].slug)
     .replace(/\{\{BASE\}\}/g, base)
     .replace(/\{\{LANG\}\}/g, l)
     .replace('<!DOCTYPE html>', '<!DOCTYPE html>\n<!-- Pagina creata da genera-pagine.js: per modificarla cambiare modello.html o testi.js -->');
@@ -141,6 +144,7 @@ const LOCALE = { it: 'it-IT', en: 'en-GB', de: 'de-DE', fr: 'fr-FR' };
 const CIRCA = { it: 'circa ', en: 'about ', de: 'ca. ', fr: 'env. ' };
 const modelloGuida = leggi('modello-guida.html');
 const versioneCss = (modello.match(/stile\.css\?v=(\d+)/) || [])[1];
+const versioneConsenso = (modello.match(/consenso\.js\?v=(\d+)/) || [])[1];
 /* Icone prese dal modello principale, solo quelle usate nelle guide */
 const icona = id => {
   const m = modello.match(new RegExp('<symbol id="' + id + '"[\\s\\S]*?</symbol>'));
@@ -202,7 +206,8 @@ for (const g of GUIDE) {
       .replace(/\{\{H1\}\}/g, c.h1).replace(/\{\{BREVE\}\}/g, c.breve).replace(/\{\{EYEBROW\}\}/g, c.eyebrow)
       .replace(/\{\{LEAD\}\}/g, c.lead).replace(/\{\{ALT\}\}/g, esc(c.alt))
       .replace(/\{\{FOTO_JPG\}\}/g, fotoJpg).replace(/\{\{FOTO\}\}/g, g.foto).replace(/\{\{OG_LOCALE\}\}/g, OG_LOCALE[l])
-      .replace(/\{\{V_CSS\}\}/g, versioneCss).replace(/\{\{HOME\}\}/g, home).replace(/\{\{LANG\}\}/g, l)
+      .replace(/\{\{V_CSS\}\}/g, versioneCss).replace(/\{\{V_CONSENSO\}\}/g, versioneConsenso).replace(/\{\{HOME\}\}/g, home).replace(/\{\{LANG\}\}/g, l)
+      .replace(/\{\{PRIVACY\}\}/g, base + PRIVACY[l].slug)
       .replace(/\{\{UI:(\w+)\}\}/g, (m, k) => { if (!(k in ui)) throw new Error('UI mancante: ' + k); return ui[k]; })
       .replace(/\{\{T:(\w+)\}\}/g, (m, k) => { if (!(k in T)) throw new Error('Testo mancante: ' + k); return T[k]; })
       .replace(/\{\{BASE\}\}/g, base)
@@ -215,6 +220,40 @@ for (const g of GUIDE) {
     pagineGuida.push({ g, l });
     console.log('Creata ' + file + ' (' + Math.round(html.length / 1024) + ' KB)');
   }
+}
+
+/* =============================================================================
+   PRIVACY E COOKIE: 4 pagine da modello-privacy.html + privacy.js
+   (noindex e fuori dalla sitemap: servono agli ospiti, non alle ricerche)
+   ============================================================================= */
+const modelloPrivacy = leggi('modello-privacy.html');
+const ICONE_PRIVACY = ['i-arrow', 'i-whatsapp'].map(icona).join('\n');
+for (const { l } of LINGUE) {
+  const p = PRIVACY[l], ui = ctx.GUIDE_UI[l], T = TESTI[l];
+  const base = '../'.repeat(p.slug.split('/').filter(Boolean).length);
+  const home = base + (l === 'it' ? '' : l + '/');
+  const hreflang = LINGUE.map(x => '  <link rel="alternate" hreflang="' + x.l + '" href="' + SITO + PRIVACY[x.l].slug + '">').join('\n');
+  const corte = LINGUE.map(x => '<a href="' + base + PRIVACY[x.l].slug + '" hreflang="' + x.l + '" lang="' + x.l + '"' + (x.l === l ? ' aria-current="page"' : '') + '>' + x.l.toUpperCase() + '</a>').join('');
+  const lunghe = LINGUE.filter(x => x.l !== l).map(x => '<a href="' + base + PRIVACY[x.l].slug + '" hreflang="' + x.l + '" lang="' + x.l + '">' + NOMI_LINGUA[x.l] + '</a>').join(' · ');
+  const tutte = GUIDE.map(x => '<li><a href="' + base + x[l].slug + '">' + x[l].breve + '</a></li>').join('');
+
+  let html = modelloPrivacy
+    .replace('{{HREFLANG}}', hreflang).replace('{{ICONE}}', ICONE_PRIVACY).replace('{{CORPO}}', () => p.corpo.trim())
+    .replace('{{TUTTE}}', tutte).replace('{{LINGUE_CORTE}}', corte).replace('{{LINGUE_LUNGHE}}', lunghe)
+    .replace(/\{\{TITLE\}\}/g, esc(p.title)).replace(/\{\{DESC\}\}/g, esc(p.desc)).replace(/\{\{URL\}\}/g, SITO + p.slug)
+    .replace(/\{\{H1\}\}/g, p.h1).replace(/\{\{LEAD\}\}/g, p.lead).replace(/\{\{DATA\}\}/g, p.data).replace('{{ALTRE_LINGUE}}', p.lingue)
+    .replace(/\{\{PRIVACY\}\}/g, base + p.slug)
+    .replace(/\{\{V_CSS\}\}/g, versioneCss).replace(/\{\{V_CONSENSO\}\}/g, versioneConsenso)
+    .replace(/\{\{HOME\}\}/g, home).replace(/\{\{LANG\}\}/g, l)
+    .replace(/\{\{UI:(\w+)\}\}/g, (m, k) => { if (!(k in ui)) throw new Error('UI mancante: ' + k); return ui[k]; })
+    .replace(/\{\{T:(\w+)\}\}/g, (m, k) => { if (!(k in T)) throw new Error('Testo mancante: ' + k); return T[k]; })
+    .replace(/\{\{BASE\}\}/g, base)
+    .replace('<!DOCTYPE html>', '<!DOCTYPE html>\n<!-- Pagina creata da genera-pagine.js: per modificarla cambiare privacy.js o modello-privacy.html -->');
+  if (/\{\{[A-Z_:a-z]+\}\}/.test(html)) throw new Error('Segnaposto rimasto in ' + p.slug + ': ' + html.match(/\{\{[^}]+\}\}/)[0]);
+
+  fs.mkdirSync(path.join(DIR, p.slug), { recursive: true });
+  fs.writeFileSync(path.join(DIR, p.slug + 'index.html'), html, 'utf8');
+  console.log('Creata ' + p.slug + 'index.html (' + Math.round(html.length / 1024) + ' KB)');
 }
 
 /* Mappa del sito per i motori di ricerca: pagine principali e guide, con i collegamenti tra lingue e le foto */

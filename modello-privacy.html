@@ -1,34 +1,18 @@
 <!DOCTYPE html>
-<html lang="{{LANG}}" prefix="og: https://ogp.me/ns#">
+<html lang="{{LANG}}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{TITLE}}</title>
   <meta name="description" content="{{DESC}}">
-  <meta name="author" content="Attico Panoramico Milazzo – De Filippo Grazia">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#142433">
   <link rel="canonical" href="{{URL}}">
 {{HREFLANG}}
   <link rel="icon" type="image/jpeg" href="{{BASE}}images/Attico.jpg">
   <link rel="apple-touch-icon" href="{{BASE}}images/Attico.jpg">
-
-  <!-- Anteprima per WhatsApp / Facebook / X -->
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="{{URL}}">
-  <meta property="og:site_name" content="Attico Panoramico Milazzo">
-  <meta property="og:title" content="{{TITLE}}">
-  <meta property="og:description" content="{{DESC}}">
-  <meta property="og:image" content="{{FOTO_JPG}}">
-  <meta property="og:image:width" content="960">
-  <meta property="og:image:height" content="800">
-  <meta property="og:locale" content="{{OG_LOCALE}}">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="preload" as="image" href="{{BASE}}images/{{FOTO}}-scaled-960x800_c.webp" imagesrcset="{{BASE}}images/{{FOTO}}-scaled-480x400_c.webp 480w, {{BASE}}images/{{FOTO}}-scaled-720x600_c.webp 720w, {{BASE}}images/{{FOTO}}-scaled-960x800_c.webp 960w" imagesizes="(max-width: 900px) calc(100vw - 32px), 860px" fetchpriority="high">
   <link rel="stylesheet" href="{{BASE}}stile.css?v={{V_CSS}}">
   <script src="{{BASE}}consenso.js?v={{V_CONSENSO}}" defer></script>
-{{JSONLD}}
 </head>
 
 <body class="pagina-guida">
@@ -56,45 +40,20 @@
   <div class="container guida__wrap">
 
     <nav class="guida__briciole" aria-label="{{UI:briciole}}">
-      <a href="{{HOME}}">Attico Panoramico</a><span aria-hidden="true">›</span><span aria-current="page">{{BREVE}}</span>
+      <a href="{{HOME}}">Attico Panoramico</a><span aria-hidden="true">›</span><span aria-current="page">{{H1}}</span>
     </nav>
 
     <header class="guida__head">
-      <p class="eyebrow eyebrow--line">{{EYEBROW}}</p>
       <h1 class="title title--xl">{{H1}}</h1>
       <p class="lead">{{LEAD}}</p>
-      <p class="guida__data">{{UI:aggiornata}}</p>
+      <p class="guida__data">{{DATA}}</p>
     </header>
 
-    <figure class="guida__foto">
-      <img src="{{BASE}}images/{{FOTO}}-scaled-960x800_c.webp" srcset="{{BASE}}images/{{FOTO}}-scaled-480x400_c.webp 480w, {{BASE}}images/{{FOTO}}-scaled-720x600_c.webp 720w, {{BASE}}images/{{FOTO}}-scaled-960x800_c.webp 960w" sizes="(max-width: 900px) calc(100vw - 32px), 860px" width="960" height="800" fetchpriority="high" alt="{{ALT}}">
-    </figure>
-
-    <article class="guida__testo">
+    <article class="guida__testo privacy">
 {{CORPO}}
-
-      <section class="guida__faq" aria-labelledby="faqTitolo">
-        <h2 id="faqTitolo">{{UI:faq}}</h2>
-        <div class="faq__list">{{FAQ}}</div>
-      </section>
     </article>
 
-    <aside class="guida__cta">
-      <p class="eyebrow eyebrow--light">Attico Panoramico · Milazzo</p>
-      <h2>{{UI:cta_titolo}}</h2>
-      <p>{{UI:cta_testo}}</p>
-      <div class="cta__btns">
-        <a class="btn btn--gold" href="{{HOME}}#disponibilita">{{UI:cta_date}}<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn--wa" href="https://wa.me/393880775449" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg>{{UI:cta_wa}}</a>
-      </div>
-    </aside>
-
-    <nav class="guida__altre" aria-labelledby="altreTitolo">
-      <h2 id="altreTitolo">{{UI:altre}}</h2>
-      <ul>{{ALTRE}}</ul>
-    </nav>
-
-    <p class="guida__lingue">{{UI:lingue}}: {{LINGUE_LUNGHE}}</p>
+    <p class="guida__lingue">{{ALTRE_LINGUE}}: {{LINGUE_LUNGHE}}</p>
   </div>
 </main>
 
@@ -122,7 +81,7 @@
   </div>
   <div class="container footer__bottom">
     <p>CIR 19083049C206347 · CIN IT083049C2FNPHRA9D</p>
-    <p class="footer__legal"><a href="{{PRIVACY}}" data-privacy>{{T:footer_privacy}}</a> · <a href="{{PRIVACY}}#preferenze" data-cookie-prefs>{{T:footer_cookie}}</a></p>
+    <p class="footer__legal"><a href="{{PRIVACY}}" data-privacy aria-current="page">{{T:footer_privacy}}</a> · <a href="{{PRIVACY}}#preferenze" data-cookie-prefs>{{T:footer_cookie}}</a></p>
     <p>© 2026 Attico Panoramico Milazzo · {{T:footer_rights}}</p>
   </div>
 </footer>
