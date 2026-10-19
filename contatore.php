@@ -141,6 +141,7 @@ main{max-width:720px;margin:0 auto;display:grid;gap:18px}h1{margin:0;font-size:1
 .numeri{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}.num{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}.num b{display:block;font-size:2.1rem;color:var(--sea);line-height:1.1}
 .box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;gap:12px}.top{display:flex;justify-content:space-between;gap:10px}.top em{font-style:normal;color:var(--muted);white-space:nowrap}
 .barra{height:9px;border-radius:5px;background:var(--soft);margin-top:4px}.barra i{display:block;height:100%;border-radius:5px;background:var(--sea)}
+.bottone{font:inherit;padding:7px 14px;border-radius:8px;border:1px solid var(--sea);background:var(--card);color:var(--sea);cursor:pointer}
 .grafico{display:flex;align-items:flex-end;gap:3px;height:120px}.col{flex:1;height:100%;display:flex;align-items:flex-end;background:var(--soft);border-radius:3px}.col i{display:block;width:100%;background:var(--sea);border-radius:3px}
 </style></head><body><main>
 <h1>Visite del sito</h1>
@@ -152,5 +153,29 @@ main{max-width:720px;margin:0 auto;display:grid;gap:18px}h1{margin:0;font-size:1
   . elenco('Con cosa navigano (pagine viste)', $t['dispositivi'])
   . elenco('Pagine più viste', $pagine)
   . '<p class="muted">"Diretto o link in un messaggio" comprende chi scrive l\'indirizzo, usa un preferito o apre il link da WhatsApp sul telefono (spesso l\'app non dice da dove arriva).</p>
-</main></body></html>';
+<h2>Le tue visite</h2><div class="box" id="io"><p id="ioTesto">Controllo questo dispositivo…</p><p><button type="button" id="ioBtn" class="bottone" hidden></button></p></div>
+</main>
+<script>
+/* Questa pagina la apre solo il proprietario: il dispositivo viene segnato e da qui in poi
+   le sue visite al sito non si contano (né qui né in Google Analytics). Si può annullare. */
+(function () {
+  var K = "attico_non_contare", t = document.getElementById("ioTesto"), b = document.getElementById("ioBtn");
+  function stato() {
+    var escluso = false;
+    try { escluso = localStorage.getItem(K) === "1"; } catch (e) { t.textContent = "Questo browser non permette di ricordare la scelta: le tue visite da qui vengono contate."; return; }
+    t.innerHTML = escluso ? "<strong>Le visite fatte da questo dispositivo non vengono contate</strong> (né qui né in Google Analytics). Apri questa pagina una volta anche dagli altri tuoi telefoni e computer." : "Le visite fatte da questo dispositivo vengono contate come quelle degli ospiti.";
+    b.textContent = escluso ? "Conta di nuovo questo dispositivo" : "Non contare questo dispositivo";
+    b.hidden = false;
+  }
+  try { if (sessionStorage.getItem(K + "_scelta") !== "1" && localStorage.getItem(K) === null) localStorage.setItem(K, "1"); } catch (e) {}
+  b.addEventListener("click", function () {
+    try {
+      if (localStorage.getItem(K) === "1") localStorage.setItem(K, "0"); else localStorage.setItem(K, "1");
+      sessionStorage.setItem(K + "_scelta", "1");
+    } catch (e) {}
+    stato();
+  });
+  stato();
+})();
+</script></body></html>';
 }

@@ -7,6 +7,8 @@
    - "Preferenze cookie" in fondo a ogni pagina (data-cookie-prefs) riapre l'avviso.
    - Fuori da www.atticopanoramico.it (prove sul PC) le statistiche non partono.
    - In fondo: il contatore visite senza cookie (contatore.php), che parte sempre.
+   - Sui dispositivi del proprietario (segno messo da contatore.php?vedi=...)
+     non partono né il contatore né Google Analytics.
    ============================================================================= */
 (function () {
   'use strict';
@@ -15,6 +17,10 @@
   var CHIAVE = 'attico_consenso';
   var DURATA = 182 * 24 * 3600 * 1000;   /* 6 mesi */
   var ONLINE = /(^|\.)atticopanoramico\.it$/.test(location.hostname);
+  /* Dispositivi del proprietario: il segno 'attico_non_contare' lo mette la pagina
+     contatore.php?vedi=... Su quei dispositivi né contatore né Google Analytics. */
+  var PROPRIETARIO = false;
+  try { PROPRIETARIO = localStorage.getItem('attico_non_contare') === '1'; } catch (e) { /* niente */ }
 
   var TESTI = {
     it: { titolo: 'La tua privacy', testo: 'Usiamo i cookie di Google solo se accetti: servono a contare le visite (Google Analytics) e a mostrare la mappa. Se rifiuti, il sito funziona lo stesso.', si: 'Accetta', no: 'Rifiuta', info: 'Privacy e cookie', mappa: 'Mostra la mappa', nota: 'La mappa è di Google, che può usare i propri cookie.' },
@@ -42,8 +48,8 @@
   function avviaStatistiche() {
     if (statisticheAvviate) return;
     statisticheAvviate = true;
-    window.atticoStatistiche = ONLINE ? 'avviate' : 'prova';   /* per i controlli */
-    if (!ONLINE) return;
+    window.atticoStatistiche = !ONLINE ? 'prova' : PROPRIETARIO ? 'escluso' : 'avviate';   /* per i controlli */
+    if (!ONLINE || PROPRIETARIO) return;
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'granted' });
@@ -141,8 +147,9 @@
 
   /* ---------- Contatore visite senza cookie (contatore.php) ----------
      Parte sempre, anche senza consenso: invia solo la pagina e il sito di
-     provenienza, niente cookie né dati personali. Solo online. */
-  if (ONLINE) {
+     provenienza, niente cookie né dati personali. Solo online, mai sui
+     dispositivi del proprietario. */
+  if (ONLINE && !PROPRIETARIO) {
     try {
       var url = '/contatore.php?p=' + encodeURIComponent(location.pathname) + '&r=' + encodeURIComponent(document.referrer || '');
       if (!(navigator.sendBeacon && navigator.sendBeacon(url))) new Image().src = url;
