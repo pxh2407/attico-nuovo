@@ -6,6 +6,7 @@
    - La scelta resta salvata nel browser per 6 mesi, poi l'avviso ricompare.
    - "Preferenze cookie" in fondo a ogni pagina (data-cookie-prefs) riapre l'avviso.
    - Fuori da www.atticopanoramico.it (prove sul PC) le statistiche non partono.
+   - In fondo: il contatore visite senza cookie (contatore.php), che parte sempre.
    ============================================================================= */
 (function () {
   'use strict';
@@ -137,4 +138,14 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', avvia);
   else avvia();
+
+  /* ---------- Contatore visite senza cookie (contatore.php) ----------
+     Parte sempre, anche senza consenso: invia solo la pagina e il sito di
+     provenienza, niente cookie né dati personali. Solo online. */
+  if (ONLINE) {
+    try {
+      var url = '/contatore.php?p=' + encodeURIComponent(location.pathname) + '&r=' + encodeURIComponent(document.referrer || '');
+      if (!(navigator.sendBeacon && navigator.sendBeacon(url))) new Image().src = url;
+    } catch (e) { /* contatore non raggiungibile: il sito funziona lo stesso */ }
+  }
 })();

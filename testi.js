@@ -86,7 +86,7 @@ it: {
   menu_close: 'Chiudi il menu',
 
   hero_eyebrow: 'Milazzo · Sicilia',
-  hero_sub: 'Vista mare nel centro storico di Milazzo',
+  hero_sub: 'Casa vacanze vista mare nel centro storico di Milazzo',
   hero_desc: 'Eleganza, comfort e panorami mozzafiato nel cuore di Milazzo. Terrazza privata, garage incluso, home cinema e il porto per le Isole Eolie a 15 minuti a piedi.',
   hero_cta_dates: 'Verifica le date',
   hero_cta_wa: 'Scrivici su WhatsApp',

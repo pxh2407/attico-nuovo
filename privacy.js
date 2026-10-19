@@ -11,7 +11,7 @@ var PRIVACY = {
     desc: 'Come l\'Attico Panoramico di Milazzo tratta i dati di chi visita il sito: cookie, Google Analytics, mappa di Google e i tuoi diritti.',
     h1: 'Privacy e cookie',
     lead: 'Poche regole chiare: niente pubblicità, nessun modulo da compilare, statistiche solo se lo permetti tu.',
-    data: 'Aggiornata il 5 ottobre 2026',
+    data: 'Aggiornata il 19 ottobre 2026',
     lingue: 'Questa pagina è disponibile anche in',
     corpo: `
 <h2>Chi è il titolare</h2>
@@ -31,6 +31,7 @@ var PRIVACY = {
 
 <h2>Il server del sito</h2>
 <p>Il sito è ospitato da Ergonet, che per motivi tecnici e di sicurezza registra automaticamente i dati di accesso (indirizzo IP, data e ora, pagina richiesta) e li conserva solo per il tempo necessario.</p>
+<p>Per sapere quante pagine vengono lette usiamo anche un nostro <strong>contatore senza cookie</strong>: registra solo il giorno, la pagina aperta, il sito di provenienza (per esempio Google) e se usi un telefono o un computer. Non salva l'indirizzo IP né altri dati che possano identificarti, e non usa cookie: per questo non chiede il consenso.</p>
 
 <h2 id="preferenze">Come cambiare idea</h2>
 <p>Puoi cambiare la tua scelta quando vuoi con il pulsante qui sotto o con il link «Preferenze cookie» in fondo a ogni pagina. Puoi anche cancellare i cookie dalle impostazioni del tuo browser.</p>
@@ -46,7 +47,7 @@ var PRIVACY = {
     desc: 'How Attico Panoramico in Milazzo handles the data of website visitors: cookies, Google Analytics, Google Maps and your rights.',
     h1: 'Privacy & cookies',
     lead: 'A few clear rules: no advertising, no forms to fill in, statistics only if you allow them.',
-    data: 'Last updated: 5 October 2026',
+    data: 'Last updated: 19 October 2026',
     lingue: 'This page is also available in',
     corpo: `
 <h2>Who is responsible</h2>
@@ -66,6 +67,7 @@ var PRIVACY = {
 
 <h2>Website hosting</h2>
 <p>The site is hosted by Ergonet, which automatically records access data (IP address, date and time, page requested) for technical and security reasons and keeps it only as long as necessary.</p>
+<p>To know how many pages are read, we also use our own <strong>cookie-free counter</strong>: it records only the day, the page opened, the referring site (for example Google) and whether you use a phone or a computer. It does not store your IP address or any other data that could identify you, and uses no cookies, so it does not ask for consent.</p>
 
 <h2 id="preferenze">Changing your mind</h2>
 <p>You can change your choice at any time with the button below or the “Cookie settings” link at the bottom of every page. You can also delete cookies in your browser settings.</p>
@@ -81,7 +83,7 @@ var PRIVACY = {
     desc: 'Wie das Attico Panoramico in Milazzo mit den Daten der Website-Besucher umgeht: Cookies, Google Analytics, Google Maps und Ihre Rechte.',
     h1: 'Datenschutz und Cookies',
     lead: 'Wenige, klare Regeln: keine Werbung, keine Formulare, Statistiken nur mit Ihrer Erlaubnis.',
-    data: 'Stand: 5. Oktober 2026',
+    data: 'Stand: 19. Oktober 2026',
     lingue: 'Diese Seite gibt es auch auf',
     corpo: `
 <h2>Verantwortlicher</h2>
@@ -101,6 +103,7 @@ var PRIVACY = {
 
 <h2>Hosting</h2>
 <p>Die Website wird bei Ergonet gehostet. Aus technischen und Sicherheitsgründen werden dabei automatisch Zugriffsdaten (IP-Adresse, Datum und Uhrzeit, aufgerufene Seite) erfasst und nur so lange wie nötig aufbewahrt.</p>
+<p>Um zu wissen, wie viele Seiten gelesen werden, nutzen wir außerdem einen eigenen <strong>Besucherzähler ohne Cookies</strong>: Er speichert nur den Tag, die aufgerufene Seite, die verweisende Website (zum Beispiel Google) und ob Sie ein Smartphone oder einen Computer verwenden. Er speichert weder Ihre IP-Adresse noch andere Daten, die Sie identifizieren könnten, und verwendet keine Cookies – deshalb fragt er nicht nach Ihrer Einwilligung.</p>
 
 <h2 id="preferenze">Entscheidung ändern</h2>
 <p>Sie können Ihre Entscheidung jederzeit über die Schaltfläche unten oder den Link „Cookie-Einstellungen“ am Ende jeder Seite ändern. Cookies können Sie auch in den Einstellungen Ihres Browsers löschen.</p>
@@ -116,7 +119,7 @@ var PRIVACY = {
     desc: 'Comment l\'Attico Panoramico à Milazzo traite les données des visiteurs du site : cookies, Google Analytics, Google Maps et vos droits.',
     h1: 'Confidentialité et cookies',
     lead: 'Quelques règles claires : pas de publicité, aucun formulaire à remplir, des statistiques seulement si vous les autorisez.',
-    data: 'Mise à jour : 5 octobre 2026',
+    data: 'Mise à jour : 19 octobre 2026',
     lingue: 'Cette page existe aussi en',
     corpo: `
 <h2>Responsable du traitement</h2>
@@ -136,6 +139,7 @@ var PRIVACY = {
 
 <h2>Hébergement</h2>
 <p>Le site est hébergé par Ergonet qui, pour des raisons techniques et de sécurité, enregistre automatiquement les données de connexion (adresse IP, date et heure, page demandée) et ne les conserve que le temps nécessaire.</p>
+<p>Pour savoir combien de pages sont lues, nous utilisons aussi notre propre <strong>compteur sans cookies</strong> : il enregistre seulement le jour, la page ouverte, le site d'origine (par exemple Google) et si vous utilisez un téléphone ou un ordinateur. Il ne conserve ni votre adresse IP ni aucune autre donnée permettant de vous identifier, et n'utilise pas de cookies : c'est pourquoi il ne demande pas votre consentement.</p>
 
 <h2 id="preferenze">Changer d'avis</h2>
 <p>Vous pouvez modifier votre choix à tout moment avec le bouton ci-dessous ou le lien « Préférences cookies » en bas de chaque page. Vous pouvez aussi supprimer les cookies dans les réglages de votre navigateur.</p>
