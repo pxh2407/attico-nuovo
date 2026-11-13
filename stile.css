@@ -426,6 +426,16 @@ strong { font-weight: 700; color: inherit; }
 .cards--discover { display: flex; flex-wrap: wrap; justify-content: center; }
 .cards--discover .card { flex: 1 1 calc(33.333% - 22px); max-width: calc(33.333% - 14px); }
 .card--soft .card__ico { width: 54px; height: 54px; padding: 12px; border-radius: 50%; background: var(--paper-2); }
+/* Schede con la foto in testa: il tondo dell'icona sta a cavallo tra foto e testo */
+.card--foto { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.card__foto { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; background: var(--paper-2); transition: transform 1.2s var(--ease); }
+.card--foto:hover .card__foto { transform: scale(1.05); }
+.card--foto .card__body { position: relative; padding: 0 30px 32px; }
+.card--foto .card__ico { margin-top: -27px; background: var(--card); box-shadow: 0 0 0 1px var(--line), 0 10px 22px -12px rgba(19,33,46,.5); }
+.card--foto h3 { margin-top: 14px; }
+.crediti { margin-top: 18px; text-align: center; font-size: .78rem; color: var(--muted); }
+.crediti a { text-decoration: underline; text-underline-offset: 2px; }
+.crediti a:hover { color: var(--gold-deep); }
 
 /* ---------- Disponibilità ---------- */
 .avail { background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%); }
@@ -715,6 +725,22 @@ strong { font-weight: 700; color: inherit; }
   .cal { padding: 18px 14px 14px; }
   .cards { grid-template-columns: 1fr; }
   .cards--discover .card { max-width: 100%; flex-basis: 100%; }
+  /* Dotazioni: sul telefono ogni scheda si apre al tocco (vedi avviaDotazioni in app.js) */
+  .js .amenities .cards { gap: 10px; }
+  .js .amenities .card { padding: 0; }
+  .js .amenities .card:hover { transform: none; box-shadow: none; }
+  .js .amenities .card__num { display: none; }
+  .js .amenities .card__ico { position: absolute; left: 18px; top: 17px; width: 30px; height: 30px; pointer-events: none; }
+  .js .amenities .card h3 { position: relative; margin: 0; padding: 19px 56px 19px 64px; font-size: 1.4rem; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .js .amenities .card h3::before, .js .amenities .card h3::after {
+    content: ''; position: absolute; right: 22px; top: 50%; width: 16px; height: 1.5px; margin-top: -1px;
+    background: var(--gold-deep); transition: transform .35s var(--ease);
+  }
+  .js .amenities .card h3::after { transform: rotate(90deg); }
+  .js .amenities .card.is-open h3::after { transform: rotate(0deg); }
+  .js .amenities .card .ticks { display: none; padding: 0 20px 18px 64px; }
+  .js .amenities .card.is-open .ticks { display: block; animation: rise .45s var(--ease); }
+  .card--foto .card__body { padding: 0 22px 26px; }
   .notes { grid-template-columns: 1fr; }
   .isola text { font-size: 25px; }
   .home-label, .eolie__sea, .eolie__sicily { font-size: 28px; }

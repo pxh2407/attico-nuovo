@@ -665,6 +665,40 @@
     }).join('');
   }
 
+  /* Dotazioni: sul telefono le sei schede si aprono al tocco (la prima è già aperta),
+     così la pagina è più corta. Su schermi larghi restano tutte aperte (vedi stile.css). */
+  function avviaDotazioni() {
+    var schede = $$('.amenities .card');
+    if (!schede.length || !window.matchMedia) return;
+    var mq = window.matchMedia('(max-width: 760px)');
+    function cambia(s) {
+      if (!mq.matches) return;
+      var aperta = s.classList.toggle('is-open');
+      $('h3', s).setAttribute('aria-expanded', aperta ? 'true' : 'false');
+    }
+    function prepara() {
+      schede.forEach(function (s) {
+        var h = $('h3', s);
+        if (mq.matches) {
+          h.setAttribute('role', 'button'); h.setAttribute('tabindex', '0');
+          h.setAttribute('aria-expanded', s.classList.contains('is-open') ? 'true' : 'false');
+        } else {
+          h.removeAttribute('role'); h.removeAttribute('tabindex'); h.removeAttribute('aria-expanded');
+        }
+      });
+    }
+    schede.forEach(function (s, i) {
+      if (i === 0) s.classList.add('is-open');
+      var h = $('h3', s);
+      h.addEventListener('click', function () { cambia(s); });
+      h.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); cambia(s); }
+      });
+    });
+    prepara();
+    if (mq.addEventListener) mq.addEventListener('change', prepara); else if (mq.addListener) mq.addListener(prepara);
+  }
+
   /* =========================================================================
      8. ANIMAZIONI ALLO SCORRIMENTO
      ========================================================================= */
@@ -708,6 +742,7 @@
   $('#year').textContent = new Date().getFullYear();
   disegnaEolie();
   applicaLingua(lang);
+  avviaDotazioni();
   avviaAnimazioni();
   suScrollPresto();
   caricaMeteo();
