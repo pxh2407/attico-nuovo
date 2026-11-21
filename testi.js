@@ -71,7 +71,7 @@ it: {
   meta_title: 'Attico Panoramico Milazzo – Casa Vacanze Vista Mare | Sicilia',
   meta_desc: 'Casa vacanze nel centro storico di Milazzo con terrazza panoramica vista mare, garage privato, home cinema e WiFi. Fino a 8 ospiti, 84 recensioni 5 stelle.',
   skip: 'Salta al contenuto principale',
-  tagline: 'La tua oasi a Milazzo!',
+  tagline: 'luxury base for Aeolian Islands',
 
   nav_apartment: 'L\'Appartamento',
   nav_gallery: 'Galleria',
@@ -300,7 +300,7 @@ en: {
   meta_title: 'Attico Panoramico Milazzo – Sea View Holiday Home | Sicily',
   meta_desc: 'Holiday home in the historic centre of Milazzo with a panoramic sea-view terrace, private garage, home cinema and WiFi. Up to 8 guests, 82 five-star reviews.',
   skip: 'Skip to main content',
-  tagline: 'Your oasis in Milazzo!',
+  tagline: 'luxury base for Aeolian Islands',
 
   nav_apartment: 'The Apartment',
   nav_gallery: 'Gallery',
@@ -529,7 +529,7 @@ de: {
   meta_title: 'Attico Panoramico Milazzo – Ferienwohnung mit Meerblick | Sizilien',
   meta_desc: 'Ferienwohnung im historischen Zentrum von Milazzo mit Panoramaterrasse und Meerblick, Privatgarage, Heimkino und WLAN. Bis zu 8 Gäste, 84 Bewertungen mit 5 Sternen.',
   skip: 'Zum Hauptinhalt springen',
-  tagline: 'Ihre Oase in Milazzo!',
+  tagline: 'luxury base for Aeolian Islands',
 
   nav_apartment: 'Die Wohnung',
   nav_gallery: 'Galerie',
@@ -758,7 +758,7 @@ fr: {
   meta_title: 'Attico Panoramico Milazzo – Maison de vacances vue sur mer | Sicile',
   meta_desc: 'Maison de vacances dans le centre historique de Milazzo avec terrasse panoramique vue sur mer, garage privé, home cinéma et WiFi. Jusqu\'à 8 voyageurs, 84 avis 5 étoiles.',
   skip: 'Aller au contenu principal',
-  tagline: 'Votre oasis à Milazzo !',
+  tagline: 'luxury base for Aeolian Islands',
 
   nav_apartment: 'L\'Appartement',
   nav_gallery: 'Galerie',

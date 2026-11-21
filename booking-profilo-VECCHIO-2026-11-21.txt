@@ -1,0 +1,24 @@
+COPIA DEI TESTI BOOKING («Il tuo profilo», italiano) PRIMA DELLA MODIFICA DEL 21/11/2026 — struttura 3292059
+
+=== Struttura (welcome_message) ===
+L’ospitalità
+Apprezzerete lo standard qualitativo di un albergo di lusso nell’intimità di un appartamento indipendente tutto vostro. Nel cuore del centro storico di Milazzo, a pochi metri da ristoranti, bar, pub, supermercati, panificio, lavanderia, parrucchiere. Garage privato, biblioteca con oltre 300 volumi, WiFi, home cinema , notebook e stampante. TV in tutte le stanze. Nessun particolare, seppur piccolo, è stato trascurato per contribuire a rendere il vostro soggiorno un’esperienza unica e indimenticabile.
+
+
+L’appartamento è stato recentemente completamente ristrutturato offrendo il confort di un albergo a **** stelle: Una grande sala dove pranzare e dove seduti su un comodo divano, godervi su uno schermo cinematografico la visione gratuita di film con NETFLIX e accedere a tutte le app di Android Vision, vedere in diretta  i programmi delleTV Nazionale ed esteri, youtube, ecc. Tre camere da letto con TV; Un grande salone con home cinema è in caso di necessità un comodo divano letto per ottenere ulteriori due posti letto; Due Bagni; Cucina con tutti gli elettrodomestici utili
+
+=== Host (owner_info) ===
+Sarete accolti personalmente da Graziella o da un suo familiare. Tutti gli spazi dell’appartamento sono a completa disposizione degli ospiti
+Saranno fornite tutte le informazioni utili per la corretta gestione di tutti i dispositivi dell’appartamento. Saremo comunque sempre reperibile telefonicamente o attraverso sms o WA
+
+=== Quartiere (neighborhood_info) ===
+Milazzo, in Sicilia, è posta tra due golfi, quello omonimo a est e quello di Patti a ovest, in un luogo strategico della Sicilia nord-orientale. Meta turistica e ideale punto di partenza per le Isole Eolie, il Parco dei Nebrodi e Tindari. Aliscafi e navi veloci collegano più volte al giorno il porto di Milazzo ‚che si trova a circa 600 metri, con le isole Eolie. C’è anche la possibilità di prenotare delle minicrociere della durata di un giorno per visitare tutto l’arcipelago delle isole Eolie e per vedere di notte la Sciara di fuoco del vulcano Stromboli. Taormina e raggiungibile a circa un’ora di autostrada, Tindari circa 40 Minuti, Catania 1h.30, Palermo 2 h.
+
+=== Consigli per famiglie (family_tips) ===
+(vuoto)
+
+=== Altre modifiche fatte lo stesso giorno ===
+- Condizioni: check-in da 17:30 a 17:00 (fino alle 23:30 invariato).
+- Servizi e dotazioni messi su «No»: Cucina in comune, Sala comune/zona TV, Spiaggia, App per il check-in da scaricare, Consegna spesa a domicilio, Armadietti.
+- Profilo: riscritti in italiano i tre testi (struttura, host, quartiere); aggiunta la versione English (prima non c'era). Nel testo dell'host niente recapiti (Booking non li accetta).
+- «Da sapere»: tolte le frasi standard COVID n. 48 («non accetta ospiti da specifici Paesi») e n. 50 («misure extra di sicurezza e igiene»). Resta la n. 4 (comunicare l'orario di arrivo).
