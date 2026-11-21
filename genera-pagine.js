@@ -90,12 +90,13 @@ for (const { l, base, file } of LINGUE) {
   /* Controllo: il numero di recensioni Airbnb scritto nella descrizione per Google deve essere quello di testi.js */
   const recensioni = (t('rev_n_airbnb').match(/\d+/) || [])[0];
   const descrizione = (seo.match(/name="description" content="([^"]*)"/) || [])[1] || '';
-  (descrizione.match(/\b\d+ (?:recensioni|reviews|Bewertungen|avis)\b/g) || []).forEach(x => {
+  (descrizione.match(/\b\d+ (?:five-star )?(?:recensioni|reviews|Bewertungen|avis)\b/g) || []).forEach(x => {
     if (x.match(/\d+/)[0] !== recensioni) throw new Error('seo/' + l + '.html dice "' + x + '" ma testi.js dice ' + recensioni + ': aggiornare seo/' + l + '.html');
   });
 
   let html = modello
     .replace('{{SEO}}', seo)
+    .replace(/\{\{RECENSIONI\}\}/g, recensioni)   /* numero delle recensioni Airbnb, da rev_n_airbnb in testi.js */
     .replace('{{REINDIRIZZA}}', l === 'it' ? REINDIRIZZA : '')
     .replace('{{GUIDE_LINKS}}', linkGuide(l, base))
     .replace(/\{\{PRIVACY\}\}/g, base + PRIVACY[l].slug)
