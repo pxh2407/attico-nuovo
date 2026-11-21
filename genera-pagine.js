@@ -27,6 +27,7 @@ const GUIDE = ctx.GUIDE;
 const PRIVACY = ctx.PRIVACY;
 const SITO = 'https://www.atticopanoramico.it/';
 const GUIDE_DATA = '2026-10-02';   /* data di pubblicazione/ultima revisione delle guide */
+const OGGI = new Date().toISOString().slice(0, 10);   /* data di aggiornamento delle pagine principali */
 
 /* Collegamenti alle guide nella pagina principale di ogni lingua */
 const linkGuide = (l, base) => GUIDE.map(g =>
@@ -79,8 +80,22 @@ for (const { l, base, file } of LINGUE) {
     return v;
   };
 
+  /* Intestazioni Google: data di aggiornamento di oggi e domande frequenti prese da testi.js
+     (così le FAQ dei dati strutturati sono sempre identiche a quelle visibili nella pagina) */
+  const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: t('faq').map(q => ({
+    '@type': 'Question', name: q[0], acceptedAnswer: { '@type': 'Answer', text: q[1].replace(/<[^>]+>/g, '') } })) };
+  let seo = leggi('seo/' + l + '.html').replace(/\s+$/, '')
+    .replace('{{OGGI}}', OGGI)
+    .replace('{{FAQ_LD}}', () => '  <script type="application/ld+json">\n' + JSON.stringify(faqLd, null, 2).replace(/^/gm, '  ') + '\n  </script>');
+  /* Controllo: il numero di recensioni Airbnb scritto nella descrizione per Google deve essere quello di testi.js */
+  const recensioni = (t('rev_n_airbnb').match(/\d+/) || [])[0];
+  const descrizione = (seo.match(/name="description" content="([^"]*)"/) || [])[1] || '';
+  (descrizione.match(/\b\d+ (?:recensioni|reviews|Bewertungen|avis)\b/g) || []).forEach(x => {
+    if (x.match(/\d+/)[0] !== recensioni) throw new Error('seo/' + l + '.html dice "' + x + '" ma testi.js dice ' + recensioni + ': aggiornare seo/' + l + '.html');
+  });
+
   let html = modello
-    .replace('{{SEO}}', leggi('seo/' + l + '.html').replace(/\s+$/, ''))
+    .replace('{{SEO}}', seo)
     .replace('{{REINDIRIZZA}}', l === 'it' ? REINDIRIZZA : '')
     .replace('{{GUIDE_LINKS}}', linkGuide(l, base))
     .replace(/\{\{PRIVACY\}\}/g, base + PRIVACY[l].slug)
@@ -257,7 +272,7 @@ for (const { l } of LINGUE) {
 }
 
 /* Mappa del sito per i motori di ricerca: pagine principali e guide, con i collegamenti tra lingue e le foto */
-const oggi = new Date().toISOString().slice(0, 10);
+const oggi = OGGI;
 const alternative = LINGUE.map(({ l }) => '    <xhtml:link rel="alternate" hreflang="' + l + '" href="' + indirizzo(l) + '"/>').join('\n') +
   '\n    <xhtml:link rel="alternate" hreflang="x-default" href="' + indirizzo('en') + '"/>';
 const immagini = FOTO.map(f => '    <image:image><image:loc>' + SITO + 'images/' + f.file + '</image:loc></image:image>').join('\n');
@@ -275,3 +290,42 @@ const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '\n' + urlGuide + '\n</urlset>\n';
 fs.writeFileSync(path.join(DIR, 'sitemap.xml'), sitemap, 'utf8');
 console.log('Creata sitemap.xml (' + LINGUE.length + ' pagine principali + ' + pagineGuida.length + ' guide)');
+
+/* llms.txt: scheda riassuntiva in testo semplice per gli assistenti di intelligenza artificiale
+   (formato proposto su llmstxt.org). Solo dati già presenti nel sito, presi da testi.js e guide.js. */
+const senzaTag = s => String(s).replace(/<br\s*\/?>/g, ' ').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+const llms = [
+  '# Attico Panoramico Milazzo',
+  '',
+  '> Independent holiday apartment (penthouse) in the historic centre of Milazzo, Sicily, Italy, run directly by its owners. ' +
+  'Panoramic terrace with sea view, private garage, up to 8 guests, a 15-minute walk from the port for the Aeolian Islands. ' +
+  'Italiano: casa vacanze indipendente all\'ultimo piano nel centro storico di Milazzo, con terrazza panoramica vista mare e garage privato.',
+  '',
+  '- Address: Via Cristoforo Colombo 7, 98057 Milazzo (ME), Sicily, Italy',
+  '- Coordinates: 38.22509, 15.24127',
+  '- Official website: ' + SITO,
+  '- National ID code (CIN): IT083049C2FNPHRA9D · Regional code (CIR): 19083049C206347',
+  '- Contact and booking: WhatsApp +39 388 077 5449',
+  '- Guest ratings: Airbnb ' + TESTI.en.rev_v_airbnb + '/5 (' + TESTI.en.rev_n_airbnb + '), Booking.com ' + TESTI.en.rev_v_booking + '/10 (' + TESTI.en.rev_n_booking + '), Vrbo ' + TESTI.en.rev_v_vrbo + '/10 (' + TESTI.en.rev_n_vrbo + ')',
+  '',
+  '## Frequently asked questions',
+  '',
+  ...TESTI.en.faq.map(q => '- **' + senzaTag(q[0]) + '** ' + senzaTag(q[1])),
+  '',
+  '## Pages',
+  '',
+  ...LINGUE.map(({ l }) => '- [' + { it: 'Home (Italiano)', en: 'Home (English)', de: 'Startseite (Deutsch)', fr: 'Accueil (Français)' }[l] + '](' + indirizzo(l) + ')'),
+  ...GUIDE.map(g => '- [' + senzaTag(g.en.h1) + '](' + SITO + g.en.slug + '): ' + senzaTag(g.en.desc)),
+  ...GUIDE.map(g => '- [' + senzaTag(g.it.h1) + '](' + SITO + g.it.slug + ') (italiano)'),
+  '',
+  '## Official listings',
+  '',
+  '- [Airbnb](https://www.airbnb.com/rooms/23952011)',
+  '- [Booking.com](https://www.booking.com/hotel/it/7-via-cristoforo-colombo.html)',
+  '- [Vrbo](https://www.vrbo.com/it-it/affitto-vacanze/p10845834)',
+  '- [Expedia](https://www.expedia.com/Milazzo-Hotels-Panoramic-Penthouse-Old-Town-Milazzo.h65727925.Hotel-Information)',
+  '- [Google Maps](https://maps.google.com/?cid=5958162108641667909)',
+  ''
+].join('\n');
+fs.writeFileSync(path.join(DIR, 'llms.txt'), llms, 'utf8');
+console.log('Creato llms.txt (' + Math.round(llms.length / 1024) + ' KB)');
